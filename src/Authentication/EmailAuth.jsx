@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { json, useNavigate } from 'react-router-dom';
 
 function EmailAuth() {
   const [email, setEmail] = useState(''); 
+  const navigate = useNavigate()
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value); 
@@ -13,6 +15,10 @@ function EmailAuth() {
     try {
       const response = await axios.post('http://127.0.0.1:8000/register/', { email });
       console.log('Registration successful:', response.data);
+      localStorage.setItem('token',JSON.stringify(response.data.token))
+      localStorage.setItem('key',JSON.stringify(response.data.key))
+      localStorage.setItem('email',JSON.stringify(response.data.email))
+      navigate('/login')
     } catch (error) {
       console.error('Registration failed:', error);
     }

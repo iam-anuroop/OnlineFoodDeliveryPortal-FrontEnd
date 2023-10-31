@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function OtpVerify() {
   const [otp, setOtp] = useState(''); 
+  const navigate = useNavigate()
 
+  const email = localStorage.getItem('email')
+  const key = localStorage.getItem('key')
   const handleOtpChange = (e) => {
     setOtp(e.target.value); 
   };
@@ -11,8 +15,16 @@ function OtpVerify() {
   const VerifyOtp = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/login/', { otp });
+      const response = await axios.post('http://127.0.0.1:8000/login/', 
+      { 
+        otp:otp,
+        email:email,
+        key:key
+      });
       console.log('Verification successful:', response.data);
+      localStorage.removeItem('key')
+      localStorage.removeItem('email')
+      navigate('/home')
     } catch (error) {
       console.error('Verification failed:', error);
     }
