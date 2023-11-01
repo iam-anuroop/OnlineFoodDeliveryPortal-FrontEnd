@@ -24,6 +24,8 @@ function OtpVerify() {
       console.log('Verification successful:', response.data);
       localStorage.removeItem('key')
       localStorage.removeItem('email')
+      localStorage.removeItem('authTokens')
+      localStorage.setItem('authTokens',JSON.stringify(response.data))
       navigate('/home')
     } catch (error) {
       console.error('Verification failed:', error);
