@@ -6,8 +6,8 @@ function OtpVerify() {
   const [otp, setOtp] = useState(''); 
   const navigate = useNavigate()
 
-  const email = localStorage.getItem('email')
-  const key = localStorage.getItem('key')
+  const email = JSON.parse(localStorage.getItem('email'))
+  const key = JSON.parse(localStorage.getItem('key'))
   const handleOtpChange = (e) => {
     setOtp(e.target.value); 
   };
@@ -24,7 +24,6 @@ function OtpVerify() {
       console.log('Verification successful:', response.data);
       localStorage.removeItem('key')
       localStorage.removeItem('email')
-      localStorage.removeItem('authTokens')
       localStorage.setItem('authTokens',JSON.stringify(response.data))
       navigate('/home')
     } catch (error) {

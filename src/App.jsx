@@ -1,42 +1,43 @@
-import { createContext, useState } from 'react'
+import { useState } from 'react'
 import { Route,Routes } from 'react-router-dom'
+import { jwtDecode } from 'jwt-decode'
+import AuthContext from './Context/AuthContext'
 import EmailAuth from './Authentication/EmailAuth'
 import OtpVerify from './Authentication/OtpVerify'
 import Home from './pages/home'
 import Location from './pages/Location'
-import { jwtDecode } from 'jwt-decode'
+import Profile from './UsersPages/Profile'
+import UpdateProfile from './UsersPages/UpdateProfile'
 
 
 
 function App() {
-  const AuthContext = createContext()
 
-  const [authToken,setAuthToken] = useState(()=>
+  const [authTokens,setAuthTokens] = useState(()=>
   localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
   )
-  // const x = JSON.parse(localStorage.getItem('authTokens'))
-  // console.log(x.token.access);
   const [user,setUser] = useState(()=>
   localStorage.getItem('authTokens') ? jwtDecode(JSON.parse(localStorage.getItem('authTokens')).token.access) : null
   )
-console.log(user,'userrrrrrrrrrr');
 
   const context = {
-    authToken,setAuthToken,
+    authTokens,setAuthTokens,
     user,setUser,
-
   }
 
   // const isAuthenticated = localStorage.getItem('location');
   
   return (
     <div className='app'>
+
       <AuthContext.Provider value={context}>
         <Routes>
           <Route element={<Location/>} path='/'/>
           <Route element={<EmailAuth/>} path='/register'/>
           <Route element={<OtpVerify/>} path='/login'/>
           <Route element={<Home/>} path='/home'/>
+          <Route element={<Profile/>} path='/profile'/>
+          <Route element={<UpdateProfile/>} path='/update'/>
         </Routes>
       </AuthContext.Provider>
 

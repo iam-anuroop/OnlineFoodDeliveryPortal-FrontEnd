@@ -9,11 +9,14 @@ function EmailAuth() {
   const handleEmailChange = (e) => {
     setEmail(e.target.value); 
   };
+  console.log(email);
 
   const registerEmail = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/register/', { email });
+      const response = await axios.post('http://127.0.0.1:8000/register/', { 
+        email:email
+      });
       console.log('Registration successful:', response.data);
       localStorage.setItem('token',JSON.stringify(response.data.token))
       localStorage.setItem('key',JSON.stringify(response.data.key))
