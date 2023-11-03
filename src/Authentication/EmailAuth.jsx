@@ -1,10 +1,44 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { json, useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+
+
+
 
 function EmailAuth() {
   const [email, setEmail] = useState(''); 
   const navigate = useNavigate()
+
+  // material ui state and style --->
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    // border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    display: 'flex',
+    flexDirection: 'column',
+  };
+  const buttonstyle = {
+    bgcolor: '#3B945E',
+    marginTop: 'auto', 
+    marginLeft: 'auto',
+  }
+
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value); 
@@ -28,15 +62,31 @@ function EmailAuth() {
   };
 
   return (
-    <form onSubmit={registerEmail}>
-      <input
-        type="email"
-        placeholder='email'
-        value={email}
-        onChange={handleEmailChange} 
-      />
-      <button type="submit">submit</button>
-    </form>
+    <>
+    <div>
+      <Button onClick={handleOpen}>login or signup</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <TextField
+                    required
+                    id="outlined-required"
+                    label="username"
+                    // defaultValue='email'
+                    name='Email'
+                    onChange={handleEmailChange}
+                    />
+          <Button sx={buttonstyle} variant="contained" onClick={registerEmail}>
+              Confirm
+          </Button>
+        </Box>
+      </Modal>
+    </div>
+    </>
   );
 }
 
