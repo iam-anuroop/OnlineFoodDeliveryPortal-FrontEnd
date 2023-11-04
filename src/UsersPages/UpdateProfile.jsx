@@ -32,7 +32,7 @@ function UpdateProfile() {
                 }
             }
             )
-            setProfile(response.data.data)
+            setProfile(response.data.data);
         }
         catch{
             console.log('Cant fetch user profile');

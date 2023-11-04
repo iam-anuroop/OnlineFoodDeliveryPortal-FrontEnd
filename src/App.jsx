@@ -33,7 +33,7 @@ function App() {
       <AuthContext.Provider value={context}>
         <Routes>
           <Route element={<Location/>} path='/'/>
-          <Route element={<EmailAuth/>} path='/register'/>
+          {/* <Route element={<EmailAuth/>} path='/register'/> */}
           <Route element={<OtpVerify/>} path='/login'/>
           <Route element={<Home/>} path='/home'/>
           <Route element={<Profile/>} path='/profile'/>

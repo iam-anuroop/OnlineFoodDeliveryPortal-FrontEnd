@@ -37,13 +37,18 @@ function EmailAuth() {
     marginTop: 'auto', 
     marginLeft: 'auto',
   }
+  const buttonlogin = {
+    fontFamily: 'sans-serif',
+    color:'black',
+    fontSize:'16px',
+    fontWeight:'bolder'
+  }
 
 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value); 
   };
-  console.log(email);
 
   const registerEmail = async (e) => {
     e.preventDefault(); 
@@ -60,11 +65,12 @@ function EmailAuth() {
       console.error('Registration failed:', error);
     }
   };
+  
 
   return (
     <>
     <div>
-      <Button onClick={handleOpen}>login or signup</Button>
+      <Button style={buttonlogin} onClick={handleOpen}>Login</Button>
       <Modal
         open={open}
         onClose={handleClose}
