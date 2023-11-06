@@ -3,9 +3,10 @@ import axios from 'axios';
 import { json, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
+import './EmailAuth.css'
 
 
 
@@ -19,29 +20,14 @@ function EmailAuth() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    // border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    display: 'flex',
-    flexDirection: 'column',
-  };
-  const buttonstyle = {
-    bgcolor: '#3B945E',
-    marginTop: 'auto', 
-    marginLeft: 'auto',
-  }
+
+  
   const buttonlogin = {
     fontFamily: 'sans-serif',
-    color:'black',
+    color:'white',
     fontSize:'16px',
     fontWeight:'bolder'
+    
   }
 
 
@@ -76,20 +62,29 @@ function EmailAuth() {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className='email-modal'
       >
-        <Box sx={style}>
-          <TextField
-                    required
-                    id="outlined-required"
-                    label="username"
-                    // defaultValue='email'
-                    name='Email'
-                    onChange={handleEmailChange}
-                    />
-          <Button sx={buttonstyle} variant="contained" onClick={registerEmail}>
-              Confirm
-          </Button>
+        <Box className='email-box'>
+          <div className="email-form">
+            <div className="flex-column">
+              <label className='email-input-label'>Email</label>
+            </div>
+            <div className="email-inputForm">
+            <i className="fa-solid fa-at" style={{color:'lightgreen'}}></i>
+            <input type="email" name='Email' onChange={handleEmailChange} className="email-input" placeholder="Enter your Email" />
+            </div>
+            <button className="email-form-button button-submit" onClick={registerEmail}>Get OTP <i className="fa-solid fa-key" style={{color:'white'}}></i></button>
+            <p className="email-p line">Or</p> 
+            <p className="email-p">Create an Account With Google</p>
+            <div className="email-flex-row">
+              <button className="email-google-button btn google">
+              <i className="fa-brands fa-google" style={{color:'blue'}}></i>
+                Google
+              </button>
+            </div>
+          </div>
         </Box>
+        
       </Modal>
     </div>
     </>

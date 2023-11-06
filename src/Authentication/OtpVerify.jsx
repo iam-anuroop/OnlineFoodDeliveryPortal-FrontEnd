@@ -1,41 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { MuiOtpInput } from 'mui-one-time-password-input'
+import React, { useState, useRef } from 'react';
+import './OtpVerify.css'
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
-function OtpVerify() {
-  const [otp, setOtp] = useState(''); 
+const OtpVerify = () => {
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const inputRefs = useRef([0, 0, 0, 0, 0, 0]);
   const navigate = useNavigate()
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleInputChange = (event, index) => {
+    if (event.target.value.length <= 1) {
+      const newOtp = [...otp];
+      newOtp[index] = event.target.value;
+      setOtp(newOtp);
+
+      if (index < 5 && event.target.value !== '') {
+        inputRefs.current[index + 1].focus();
+      }
+
+      if (index > 0 && event.target.value === '') {
+        inputRefs.current[index - 1].focus();
+      }
+    }
+  };
+
+  const handleKeyDown = (event, index) => {
+    if (event.key === 'Backspace' && index > 0 && otp[index] === '') {
+      inputRefs.current[index - 1].focus();
+    }
+  };
 
 
-  let result = ''
 
   const email = JSON.parse(localStorage.getItem('email'))
   const key = JSON.parse(localStorage.getItem('key'))
 
-  const handleChange = (newValue) => {
-    result+=newValue
-    setOtp(newValue)
-    if (result.length === 6){
-      VerifyOtp()
-    }
-  }
 
-  const VerifyOtp = async () => {
+  const VerifyOtp = async (e) => {
+    e.preventDefault()
     try {
       const response = await axios.post('http://127.0.0.1:8000/login/', 
       { 
-        otp:result,
+        otp:otp.join(''),
         email:email,
         key:key
       });
@@ -48,62 +61,56 @@ function OtpVerify() {
       console.error('Verification failed:', error);
     }
   };
-  
 
-  useEffect(()=>{
-    handleOpen()
-},[])
 
-const modalstyle = {
- display:'flex',
- alignItems:'center',
- justifyContent:'center',
- background:'linear-gradient(to right, green, black)'
-}
-const style = {
-  background:'whitesmoke',
-  height:'15%',
-  width:'35%',
-  display:'flex',
-  gap:'10%',
- alignItems:'center',
- justifyContent:'center',
- flexDirection:'column',
- padding:'2%',
- borderRadius:'10px',
-}
- 
-const heading = {
-  // position:'absolute',
-  top:'10%',
-  fontFamily:'sans-sarif',
-  fontSize:'150%',
-  fontWeight:'bolder',
-  color:'green'
-}
-const inputbox = {
-  height:'50%',
-  width:'80%',
-
-}
-  
+  const modalstyle = {
+    display:'flex',
+    alignItems:'center',
+    justifyContent:'center',
+    background: 'linear-gradient(120deg, #03045e, #0096c7,#03045e)'
+   }
+   
 
   return (
     <Modal
         open={open}
-        // onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         style={modalstyle}
       >
-        <Box sx={style}>
-          <div>
-          <h3  style={heading}>Enter Your OTP</h3>
-          </div>
-        <MuiOtpInput style={inputbox} length={6} value={otp} onChange={handleChange} />
-        </Box>
+        <Box>
+
+    <form className="otp-verify-Form" onSubmit={VerifyOtp}>
+      <span className="mainHeading">Enter OTP</span>
+      <p className="otpSubheading">We have sent a verification code to your Email ID</p>
+      <div className="inputContainer">
+        {otp.map((digit, index) => (
+          <input
+            key={index}
+            required
+            maxLength="1"
+            type="text"
+            className="otp-input"
+            value={digit}
+            onChange={(e) => handleInputChange(e, index)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            ref={(el) => (inputRefs.current[index] = el)}
+          />
+        ))}
+      </div>
+      <button className="verifyButton" type="submit">Verify</button>
+      
+    </form>
+    </Box>
       </Modal>
+
   );
-}
+};
 
 export default OtpVerify;
+
+
+
+{/* <p className="resendNote">
+        Didn't receive the code? <button className="resendBtn">Resend Code</button>
+      </p> */}

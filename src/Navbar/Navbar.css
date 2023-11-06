@@ -1,49 +1,6 @@
-/* Navbar.module.css */
-.navbar-first-div {
-    display: flex;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-  }
-  
-  .navbar-second-div {
-    flex: 1; /* This makes the second div grow and occupy available space */
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-logo {
-    font-size: 24px;
-  }
-  
-  .navbar-name {
-    margin: 0;
-  }
-  
-  .navbar-third-div {
-    display: none; /* Hide the options div by default on smaller screens */
-  }
-  
-  /* Media query for screens with a max-width of 768px (adjust as needed) */
-  @media (max-width: 768px) {
-    .navbar-options-div {
-      display: block; /* Show the options div on smaller screens */
-    }
-  
-    .navbar-options-list {
-      list-style-type: none;
-      padding: 0;
-    }
-  
-    .navbar-options-list li {
-        padding: 10px;
-        color: white; /* Set text color to white */
-        background-color: #555; /* Add a background color to the list items */
-      }
-  
-    .navbar-search-li {
-      background-color: #555;
-    }
-
-  }
-  
+.navbarmain{
+  background-color: #0077b6 !important;
+}
+.location-link{
+  color: white !important;
+}

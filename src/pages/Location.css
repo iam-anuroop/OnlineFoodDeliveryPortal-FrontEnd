@@ -1,0 +1,33 @@
+.location-main-div{
+    background: whitesmoke;
+    width:100%;
+
+}
+.location-second-div{
+    display: flex;
+    width:100%;
+}
+.location-right-div{
+    height: 70vh;
+    width: 50%;
+    background-image: url('https://img.freepik.com/premium-photo/indian-hindu-veg-thali-food-platter-selective-focus_466689-35146.jpg?size=626&ext=jpg&ga=GA1.1.1314413667.1699072698&semt=ais');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.location-left-div{
+    display: flex;
+    width:50%;
+    position: relative;
+}
+.login-button-div{
+    position: absolute;
+    background: black;
+    width: 10%;
+    border-radius: 5px;
+    right: 10%;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
