@@ -1,7 +1,7 @@
 .otp-verify-Form {
     width: 330px;
     height: 400px;
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,13 +15,13 @@
   
   .mainHeading {
     font-size: 1.9em;
-    color: #023e8a;
+    color: whitesmoke;
     font-weight: 700;
   }
   
   .otpSubheading {
     font-size: 1em;
-    color: black;
+    color: white;
     line-height: 17px;
     text-align: center;
   }
@@ -43,7 +43,7 @@
     border: none;
     border-radius: 7px;
     caret-color: rgb(127, 129, 255);
-    color: rgb(44, 44, 44);
+    color: rgb(250, 247, 247);
     outline: none;
     font-weight: 600;
   }

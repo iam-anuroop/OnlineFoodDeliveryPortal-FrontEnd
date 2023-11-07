@@ -1,3 +1,34 @@
+.rotating-text {
+    text-align: center;
+    transition: opacity 0.5s;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+  }
+  
+  .rotating-text-h3 {
+    margin: 0;
+    opacity: 1;
+    transition: opacity 1s;
+    font-style: normal;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    color: #0096c7;
+  }
+  
+  .rotating-text-h3:not(:second-child) {
+    opacity: 0;
+  }
+  .p-tag-reason{
+    font-size: larger;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+
 .location-main-div{
     background: whitesmoke;
     width:100%;
@@ -10,7 +41,7 @@
 .location-right-div{
     height: 70vh;
     width: 50%;
-    background-image: url('https://img.freepik.com/premium-photo/indian-hindu-veg-thali-food-platter-selective-focus_466689-35146.jpg?size=626&ext=jpg&ga=GA1.1.1314413667.1699072698&semt=ais');
+    background-image: url('https://img.freepik.com/free-photo/close-up-tall-glass-delicious-cocktail_140725-73444.jpg?size=626&ext=jpg&ga=GA1.1.1314413667.1699072698&semt=ais');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,6 +49,8 @@
 .location-left-div{
     display: flex;
     width:50%;
+    align-items: center;
+    justify-content: center;
     position: relative;
 }
 .login-button-div{
@@ -30,4 +63,86 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.website-logo-div{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.website-logo-h2{
+    font-weight:900 ;
+    color: #03045e;
+    letter-spacing: 2px;
+}
+.input-location{
+    width: 400px;
+    height: 60px;
+    outline: none;
+    border: 1px solid grey;
+    border-right:none ;
+    padding-left: 10px;
+}
+.input-location::placeholder{
+    font-size: large;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.Ready-to-eat{
+    height: 60px;
+    padding: 8px;
+    background: #0096c7;
+    color: whitesmoke;
+    font-weight: 900;
+    font-size: 18px;
+}
+.input-location:focus{
+    border: 1px solid #0077b6;
+}
+.inputloc-div{
+    background: white;
+    /* border: 1px solid #0077b6; */
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.loc-icon{
+    font-size: 25px;
+    color:green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.span-location{
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color:green;
+}
+.loc-iconspan-div{
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    border-left: none;
+    height: 60px;
+}
+
+.location-advertice-div{
+    background: #5f2f03;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.first-img,.second-img,.third-img{
+    width: 120px;
+}
+.first-img-div,.second-img-div,.third-img-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
 }

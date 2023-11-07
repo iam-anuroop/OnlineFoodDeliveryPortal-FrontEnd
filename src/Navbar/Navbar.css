@@ -1,5 +1,6 @@
 .navbarmain{
-  background-color: #0077b6 !important;
+  background: linear-gradient(40deg,#03045e, #0096c7,#03045e)  !important;
+  height: 80px;
 }
 .location-link{
   color: white !important;

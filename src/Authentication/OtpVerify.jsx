@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast} from 'react-toastify';
 
 
 
@@ -56,20 +57,25 @@ const OtpVerify = () => {
       localStorage.removeItem('key')
       localStorage.removeItem('email')
       localStorage.setItem('authTokens',JSON.stringify(response.data))
+      toast.success('Login Successfull')
       navigate('/home')
     } catch (error) {
       console.error('Verification failed:', error);
+      toast.warning('Something Wrong')
     }
   };
 
 
   const modalstyle = {
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'center',
-    background: 'linear-gradient(120deg, #03045e, #0096c7,#03045e)'
-   }
-   
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundImage: "url('https://img.freepik.com/free-photo/exploding-burger-with-vegetables-melted-cheese-black-background-generative-ai_157027-1734.jpg?size=626&ext=jpg&ga=GA1.1.1314413667.1699072698&semt=sph')",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
+  
 
   return (
     <Modal

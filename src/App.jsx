@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { Route,Routes } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 import AuthContext from './Context/AuthContext'
-import EmailAuth from './Authentication/EmailAuth'
 import OtpVerify from './Authentication/OtpVerify'
 import Home from './pages/home'
 import Location from './pages/Location'
 import Profile from './UsersPages/Profile'
 import UpdateProfile from './UsersPages/UpdateProfile'
+import Sidebar from './Sidebar/Sidebar'
 
 
 
@@ -33,11 +33,11 @@ function App() {
       <AuthContext.Provider value={context}>
         <Routes>
           <Route element={<Location/>} path='/'/>
-          {/* <Route element={<EmailAuth/>} path='/register'/> */}
           <Route element={<OtpVerify/>} path='/login'/>
           <Route element={<Home/>} path='/home'/>
           <Route element={<Profile/>} path='/profile'/>
           <Route element={<UpdateProfile/>} path='/update'/>
+          <Route element={<Sidebar/>} path='/bar'/>
         </Routes>
       </AuthContext.Provider>
 
