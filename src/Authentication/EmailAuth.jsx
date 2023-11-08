@@ -55,7 +55,7 @@ function EmailAuth() {
   return (
     <>
     <div>
-      <Button style={buttonlogin} onClick={handleOpen}>Login</Button>
+      <Button style={buttonlogin} onClick={handleOpen}>Login</Button>    
       <Modal
         open={open}
         onClose={handleClose}

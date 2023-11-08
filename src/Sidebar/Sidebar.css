@@ -1,0 +1,39 @@
+.offcanvas-header{
+    display: flex;
+    justify-content: start !important;
+    align-items: start !important;
+    flex-direction: column;
+    gap: 20px;
+}
+.offcanvas-title-div{
+    background: #0077b6;
+    width: 100%;
+    height: 40px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3%;
+    border-radius: 5px;
+}
+.offcanvas-title{
+    font-size: 18px !important;
+}
+.sidebar-ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.sidebar-ul-li-profile{
+    background: #5e5f60;
+    color: whitesmoke;
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    font-weight: bolder;
+}
+

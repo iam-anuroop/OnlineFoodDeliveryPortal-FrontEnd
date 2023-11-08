@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './Navbar.css'
 import AuthContext from '../Context/AuthContext'
+import Sidebar from '../Sidebar/Sidebar'
 
 
 function Navbar() {
@@ -43,14 +44,12 @@ function Navbar() {
                     <a className="nav-link" href="#">
                     <i className="fa-solid fa-cart-shopping"></i> Cart</a>
                   </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
+                  <li className="nav-item">
+                      <a className="nav-link " href='#'>
                       <i className="fas fa-user"></i> {user ? user.email.substring(0, 5) : "Profile"}</a>
-                    <div className="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                      <a className="dropdown-item" href="#">My account</a>
-                      <a className="dropdown-item" href="#">Log out</a>
-                    </div>
+                  </li>
+                  <li className="nav-item" style={{display:'flex',alignItems:'center',justifyContent:'center',padding:'10px'}} >
+                      <Sidebar />
                   </li>
                   
                 </ul>
