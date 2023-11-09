@@ -1,0 +1,28 @@
+
+.profile-main-div{
+    background: rgba(55, 55, 164,0.3) ;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-second-div{
+    width: 60%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
+.profile-content-div{
+    width: 100%;
+}
+.profile-content-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3%;
+    background: linear-gradient(40deg,#03045e, #0096c7,#03045e) ;
+    border-radius: 5px;
+
+}

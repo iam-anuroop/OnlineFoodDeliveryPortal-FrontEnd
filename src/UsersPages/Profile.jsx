@@ -2,19 +2,16 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import AuthContext from '../Context/AuthContext'
 import Navbar from '../Navbar/Navbar'
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
+import './Profile.css'
+import { useNavigate } from 'react-router-dom'
+
 
 function Profile() {
 
-    const { authTokens } = useContext(AuthContext)
+    const {authTokens } = useContext(AuthContext)
     const [profile,setProfile] = useState('')
-    const [open, setOpen] = React.useState(false);
+    const navigate = useNavigate()
 
-    
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
 
     const getprofile = async () => {
@@ -36,41 +33,41 @@ function Profile() {
 
     }
 
+    const user_loaction =localStorage.getItem('location')&&JSON.parse(localStorage.getItem('location'))
+    
+
     useEffect(()=>{
         getprofile()
     },[])   
     
     console.log(profile);
   return (
-    <>
+    <div className='profile-back-div'>
         <Navbar/>
-        <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='email-modal'>
-            <Box className='email-box'>
-            <div className='profile-main-div'>
-                <div className='profile-second-div'>
-                    <h3>PROFILE</h3>
-                    <button onClick={()=>Navigate('/update')}>Edit <i class="fa-solid fa-keyboard"></i></button>
-                </div>
-                <div className="profile-third-div">
-                    <div className="profile-username-div">
-                        <h3>Username : </h3>{profile.username&&<h3> {profile.username}</h3>}
+        
+        <div className="profile-main-div">
+            <div className="profile-second-div">
+                <div className="profile-content-div">
+                    <div className="profile-content-head">
+                        <div>
+                        <h3>PROFILE</h3>
+                        <h5>Hello {profile.username?profile.username:'Guest..!'}</h5>
+                        </div>
+                        <div>
+                            <button style={{border:'2px solid #0077b6',padding:'2px',fontWeight:'bold'}} onClick={()=>navigate('/update')}>Edit Profile</button>
+                        </div>
                     </div>
-                    <div className="profile-email-div">
-                        <h3>Email : </h3>{profile.email&&<h3> {profile.email}</h3>}
-                    </div>
-                    <div className="profile-phone-div">
-                        {profile.phone&&<p>phone: {profile.phone}</p>}
+
+                    <div className="profile-content-details">
+                        <h4>Username : {profile.username&&profile.username}</h4>
+                        <h4>email : {profile.email&&profile.email}</h4>
+                        <h4>location : {user_loaction.region},{user_loaction.city}</h4>
+
                     </div>
                 </div>
             </div>
-            </Box>
-        </Modal>
-    </>
+        </div>
+    </div>
   )
 }
 
