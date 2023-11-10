@@ -20,10 +20,10 @@ function OffCanvasExample({ name, ...props }) {
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header className='offcanvas-header'>
           <div className='sidebar-lock-icon-div'  onClick={handleClose}>
-            <i class="fa-solid fa-lock"></i>
+            <i className="fa-solid fa-lock"></i>
           </div>
           <div className='offcanvas-title-div'>
-            <i class="fa-solid fa-at" style={{color:'lightgray'}}></i>
+            <i className="fa-solid fa-at" style={{color:'lightgray'}}></i>
             <div>
               <Offcanvas.Title className='offcanvas-title'>{user?user.email:"Guest"}</Offcanvas.Title>
             </div>
@@ -33,7 +33,7 @@ function OffCanvasExample({ name, ...props }) {
           <ul className='sidebar-ul'>
             <li onClick={()=>navigate('/profile')} className="sidebar-ul-li-profile">
               Profile
-              <i class="fa-solid fa-id-card"></i>
+              <i className="fa-solid fa-id-card"></i>
             </li>
           </ul>
         </Offcanvas.Body>

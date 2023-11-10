@@ -10,7 +10,6 @@ function Navbar() {
 
 
     const user_loaction =localStorage.getItem('location')&&JSON.parse(localStorage.getItem('location'))
-    console.log(user_loaction);
 
 
   return (

@@ -8,6 +8,7 @@ import Location from './pages/Location'
 import Profile from './UsersPages/Profile'
 import UpdateProfile from './UsersPages/UpdateProfile'
 import Sidebar from './Sidebar/Sidebar'
+import PhoneOtp from './Authentication/PhoneOtp'
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <Route element={<Profile/>} path='/profile'/>
           <Route element={<UpdateProfile/>} path='/update'/>
           <Route element={<Sidebar/>} path='/bar'/>
+          <Route element={<PhoneOtp/>} path='/phoneotp'/>
         </Routes>
       </AuthContext.Provider>
 

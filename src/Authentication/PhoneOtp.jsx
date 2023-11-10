@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import './OtpVerify.css'
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast} from 'react-toastify';
+import AuthContext from '../Context/AuthContext'
 
 
 
@@ -14,6 +15,7 @@ const OtpVerify = () => {
   const inputRefs = useRef([0, 0, 0, 0, 0, 0]);
   const navigate = useNavigate()
   const [open, setOpen] = React.useState(true);
+  const { authTokens } = useContext(AuthContext)
 
 
   const handleInputChange = (event, index) => {
@@ -47,17 +49,20 @@ const OtpVerify = () => {
   const VerifyOtp = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://127.0.0.1:8000/login/', 
+      const response = await axios.post('http://127.0.0.1:8000/phoneverify/', 
       { 
-        otp:otp.join(''),
-        email:email,
-        key:key
+        otp:parseInt(otp.join('')),
+        phone:JSON.parse(localStorage.getItem('phone')),
+        v_id:JSON.parse(localStorage.getItem('v_id'))
+      },{
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authTokens.token.access}`
+        }
       });
-      console.log('Verification successful:', response.data);
-      localStorage.removeItem('key')
-      localStorage.removeItem('email')
+      console.log(response.data)
       localStorage.setItem('authTokens',JSON.stringify(response.data))
-      toast.success('Login Successfull')
+      toast.success('Verified Successfully')
       navigate('/home')
     } catch (error) {
       console.error('Verification failed:', error);
@@ -117,8 +122,3 @@ const OtpVerify = () => {
 
 export default OtpVerify;
 
-
-
-{/* <p className="resendNote">
-        Didn't receive the code? <button className="resendBtn">Resend Code</button>
-      </p> */}
