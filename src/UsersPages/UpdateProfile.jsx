@@ -57,7 +57,6 @@ function UpdateProfile() {
         setNewValue({ ...newValue, [name]: value });
     }
 
-    console.log(`Bearer ${authTokens.token.access}`);
 
     const update = async (e) => {
       e.preventDefault()
@@ -78,9 +77,10 @@ function UpdateProfile() {
           });
           console.log('helooooooo');
           console.log(response,'hoyy');
-          if (newValue.phone!=profile.phone){
+          if (newValue.phone!=""){
             SendOtp(newValue.phone)
           }else{
+            toast.success('Profile Updated')
             navigate('/profile')
           }
         } catch {
@@ -122,7 +122,7 @@ function UpdateProfile() {
     <>
     <Navbar/>
     <div className='update-profile-main-div'>
-        <h1>UpdateProfile</h1>
+        <h1 style={{color:'#03045e'}}>UpdateProfile</h1>
         {profile&&
         <div className='update-profile-box-div'>
         <Box

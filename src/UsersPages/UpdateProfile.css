@@ -6,6 +6,17 @@
 }
 .update-profile-box-div{
     width: 500px !important;
+    background: rgba(203, 203, 252,0.5);
+    padding: 3%;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #0077b6;
+
+}
+.update-profile-box-div:hover{
+    background: rgba(203, 203, 252,0.6);
+    color: #040404;
+    
 }
 .update-profile-submit-button{
     

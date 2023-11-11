@@ -1,0 +1,39 @@
+.owner-register-main-div{
+    background: rgb(77, 63, 63);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+.owner-register-second-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 900px;
+}
+/* .owner-register-form-div{ */
+    /* height: 1000px; */
+/* } */
+.owner-register-form-first-div{
+    background: whitesmoke;
+    display: flex;
+    border-radius: 10px;
+    color: #03045e;
+    font-weight: bolder;
+}
+.register-form-zeroth-div{
+    color: whitesmoke;
+}
+.owner-register-form-input-div{
+    width: 50%;
+    padding: 3%;
+}
+.owner-register-form-image-input-div{
+    width: 50%;
+    padding: 3%;
+    background: #03045e;
+    color: whitesmoke;
+    /* height: 700px  ; */
+}
