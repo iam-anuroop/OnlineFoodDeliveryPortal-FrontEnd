@@ -1,10 +1,19 @@
 .owner-register-main-div{
-    background: rgb(77, 63, 63);
+    background: rgb(148, 131, 131);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100%;
+}
+.owner-register-step1-div{
+    position: absolute;
+    top: 0;
+    left: 20%;
+    padding: 3%;
+    padding-top: 2%;
+    /* width: 70%; */
+    color: whitesmoke;
 }
 .owner-register-second-div{
     display: flex;
