@@ -1,18 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './OwnerRegister.css'
 import HotelSidebar from '../Sidebar/HotelSidebar'
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
 function OwnerRegister() {
+
+  const [infopen,setInfopen] = useState(true)
+
+  const handleInfopen = () => setInfopen(true);
+  const handleClose = () => setInfopen(false);
+
+
   return (
     <div style={{display:'flex'}}>
     <HotelSidebar/>
     <div className="owner-register-main-div">
-      <div className="owner-register-step1-div">
-        <h3 style={{fontWeight:'bolder',color:'#03045e'}}>STEP 1 :</h3>
-        <p style={{fontWeight:'bold'}}>Please provide the details of the owner or manager remember this will be<br/> strictly checked by 
-          our employees. so please ensure the datas are valid before submission.<br/>
-          Ones it submitted you cant directly change any of your details.
-        </p>
+      <div className="owner-register-step1-div">        
+        <Modal
+        open={infopen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{display:'flex',justifyContent:'center',alignItems:'center',background:'rgba(4, 4, 52,0.5)'}}  
+        >
+          <Box style={{background:'whitesmoke',width:'40%',height:'40%',padding:'3%',position:'relative'}}>
+            <h1>STEP 1</h1>
+            <p style={{fontWeight:'bold'}}>Please provide the details of the owner or manager remember this will be strictly checked by 
+            our employees. so please ensure the datas are valid before submission.
+            Ones it submitted you cant directly change any of your details.
+            </p>
+            <button onClick={handleClose} style={{background:'#03045e',color:'whitesmoke',position:'absolute',bottom:'8%',
+                            right:'5%',fontWeight:'bold',padding:'8px',borderRadius:'5px'}}>Close</button>
+          </Box>
+
+        </Modal>
       </div>
       <div className="owner-register-second-div">
         <div className="owner-register-form-div">
@@ -22,6 +44,7 @@ function OwnerRegister() {
                 <h3 style={{color:'#03045e'}}>Owner Details</h3>
               </div>
               <div className="owner-register-form-first-div">
+                <button className='owner-register-info-modal-btn' onClick={handleInfopen}><i class="info-icon-owner-reg fa-solid fa-circle-info"></i></button>
                 <div className="owner-register-form-input-div">
                   <div className='owner-register-firstname-div'>
                     <label className="form-label" htmlFor="form3Example4c">First name</label>
