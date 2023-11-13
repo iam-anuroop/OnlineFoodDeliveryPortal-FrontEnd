@@ -10,6 +10,7 @@ import UpdateProfile from './UsersPages/UpdateProfile'
 import Sidebar from './Sidebar/Sidebar'
 import PhoneOtp from './Authentication/PhoneOtp'
 import OwnerRegister from './HotelsPages/OwnerRegister'
+import HotelRegister from './HotelsPages/HotelRegister'
 
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route element={<Sidebar/>} path='/bar'/>
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
           <Route element={<OwnerRegister/>} path='/owner'/>
+          <Route element={<HotelRegister/>} path='/hotelreg'/>
         </Routes>
       </AuthContext.Provider>
 

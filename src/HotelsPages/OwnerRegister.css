@@ -54,8 +54,8 @@
     animation: bounce 2s infinite;
 }
 .info-icon-owner-reg{
-    font-size: 20px;
-    color: whitesmoke;
+    font-size: 25px;
+    color: rgb(245, 245, 12);
 }
 
 @keyframes bounce {
