@@ -6,6 +6,8 @@ import Modal from '@mui/material/Modal';
 import AuthContext from '../Context/AuthContext'
 import { toast} from 'react-toastify';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function OwnerRegister() {
 
@@ -14,6 +16,7 @@ function OwnerRegister() {
 
   const handleInfopen = () => setInfopen(true);
   const handleClose = () => setInfopen(false);
+  const navigate = useNavigate()
 
 
   const [formData, setFormData] = useState({
@@ -55,6 +58,7 @@ function OwnerRegister() {
       });
       console.log(response.data);
       toast.success('Step 1 completed')
+      navigate('/hotelreg')
     }catch(error){
       console.error('Error while sending form data:', error);
     }
@@ -67,7 +71,7 @@ function OwnerRegister() {
     <div style={{display:'flex'}}>
     <HotelSidebar/>
     <div className="owner-register-main-div">
-      <div className="owner-register-step1-div">        
+      <div className="owner-register-step1-div">  
         <Modal
         open={infopen}
         onClose={handleClose}
@@ -99,19 +103,19 @@ function OwnerRegister() {
                 <div className="owner-register-form-input-div">
                   <div className='owner-register-firstname-div'>
                     <label className="form-label" htmlFor="form3Example4c">First name</label>
-                    <input type="text" id="form3Example4c" name='first_name' onChange={handleChange} className="form-control" placeholder='eg : Lucifer'/>
+                    <input required type="text" id="form3Example4c" name='first_name' onChange={handleChange} className="form-control" placeholder='eg : Lucifer'/>
                   </div>
                   <div className='owner-register-secondname-div'>
                     <label className="form-label" htmlFor="form3Example4c">Last name</label>
-                    <input type="text" id="form3Example4c" name='last_name' onChange={handleChange} className="form-control" placeholder='eg : Mathan'/>
+                    <input required type="text" id="form3Example4c" name='last_name' onChange={handleChange} className="form-control" placeholder='eg : Mathan'/>
                   </div>
                   <div className='owner-register-firstname-div'>
                     <label className="form-label" htmlFor="form3Example4c">Email</label>
-                    <input type="email" id="form3Example4c" name='email' onChange={handleChange} className="form-control" placeholder='eg : example@mail.com'/>
+                    <input required type="email" id="form3Example4c" name='email' onChange={handleChange} className="form-control" placeholder='eg : example@mail.com'/>
                   </div>
                   <div className='owner-register-firstname-div'>
                     <label className="form-label" htmlFor="form3Example4c">Contact</label>
-                    <input type="text" id="form3Example4c" name='contact' onChange={handleChange} className="form-control" placeholder='eg : 97.....78'/>
+                    <input required type="text" id="form3Example4c" name='contact' onChange={handleChange} className="form-control" placeholder='eg : 97.....78'/>
                   </div>
 
                 </div>
@@ -119,11 +123,11 @@ function OwnerRegister() {
                   <div>
                     <div className='owner-register-firstname-div'>
                       <label className="form-label" htmlFor="form3Example4c">Id number</label>
-                      <input type="text" id="form3Example4c" name='id_number' onChange={handleChange} className="form-control" placeholder='eg : FH54t65'/>
+                      <input required type="text" id="form3Example4c" name='id_number' onChange={handleChange} className="form-control" placeholder='eg : FH54t65'/>
                     </div>
                     <div className='owner-register-firstname-div'>
                       <label className="form-label" htmlFor="form3Example4c">Id Crad</label>
-                      <input type="file" id="form3Example4c" name='id_proof' onChange={handleChange} className="form-control" />
+                      <input required type="file" id="form3Example4c" name='id_proof' onChange={handleChange} className="form-control" />
                     </div>
                   </div>
                   <div style={{paddingTop:'5%',display:'flex',alignItems:'center',justifyContent:'space-around',gap:'10%'}}>

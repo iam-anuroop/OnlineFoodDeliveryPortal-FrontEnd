@@ -6,7 +6,81 @@
     height: 100vh;
     width: 100%;
 }
-.hotel-register-form-image{
-    border-top-right-radius: .25rem;
-    border-bottom-left-radius: .25rem;
+.hotel-register-form-div{
+    width: 900px;
+    position: relative;
 }
+.hotel-register-form{
+    display: flex;
+}
+.hotel-register-form-left-div{
+    width: 50%;
+    padding: 2%;
+    background: #03045e;
+    color: whitesmoke;
+}
+.hotel-register-form-right-div{
+    width: 50%;
+    padding: 2%;
+    background: whitesmoke;
+    color: #03045e;
+    border-radius: 0 8px 8px 0;
+}
+.hotel-register-text-area{
+    height: 150px;
+}
+.hotel-register-left-input-div,.hotel-register-right-input-div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.hotel-register-image-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #03045e;
+    padding: 2%;
+    border-radius: 3px;
+    
+}
+.hotel-register-next-image{
+    width: 50%;
+    border: 1px solid #03045e;
+}
+.hotel-register-next-step-btn{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: none;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: larger;
+}
+.hotel-register-next-step-btn:hover{
+    border: 5px solid whitesmoke;
+    font-size: 20px;
+}
+.register-hotel-next-step-div{
+    width:50%;
+}
+.hotel-register-info-modal-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    color: rgb(218, 218, 50);
+    font-size: 25px;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }

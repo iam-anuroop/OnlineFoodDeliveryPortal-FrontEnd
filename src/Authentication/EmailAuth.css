@@ -110,6 +110,7 @@
     background-color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    box-shadow: rgba(49, 35, 35,0.3) 0px 0px 15px 1px ;
   }
   
   .email-google-button:hover {

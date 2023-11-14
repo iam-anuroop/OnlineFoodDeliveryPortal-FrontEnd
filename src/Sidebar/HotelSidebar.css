@@ -7,6 +7,10 @@
     text-align: center;
     font-weight: bolder;
     position: relative;
+    background: #03045e;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-right: 0;
 }
 
 .hotel-sidebar-meanu-item{
