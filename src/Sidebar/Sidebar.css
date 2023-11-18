@@ -24,6 +24,13 @@
     padding: 0;
     margin: 0;
     border: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar-ul li:hover{
+    background: black;
+    color: whitesmoke;
 }
 .sidebar-ul-li-profile{
     background: #5e5f60;

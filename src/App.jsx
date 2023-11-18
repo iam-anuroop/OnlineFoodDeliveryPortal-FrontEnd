@@ -11,7 +11,8 @@ import Sidebar from './Sidebar/Sidebar'
 import PhoneOtp from './Authentication/PhoneOtp'
 import OwnerRegister from './HotelsPages/OwnerRegister'
 import HotelRegister from './HotelsPages/HotelRegister'
-
+import UserPrivate from './Private/UserPrivate'
+import AccountSelector from './HotelsPages/AccountSelector'
 
 
 function App() {
@@ -22,6 +23,22 @@ function App() {
   const [user,setUser] = useState(()=>
   localStorage.getItem('authTokens') ? jwtDecode(JSON.parse(localStorage.getItem('authTokens')).token.access) : null
   )
+  const [hotel, setHotel] = useState(() => {
+    const authTokens = JSON.parse(localStorage.getItem('authTokens'));
+  
+    if (authTokens && authTokens.token && authTokens.token.access) {
+      const decodedToken = jwtDecode(authTokens.token.access);
+  
+      if (decodedToken && decodedToken.hotel_email) {
+        return decodedToken.hotel_email;
+      }
+    }
+  
+    return null;
+  });
+  
+  console.log(user, 'k');
+  
 
   const context = {
     authTokens,setAuthTokens,
@@ -38,12 +55,13 @@ function App() {
           <Route element={<Location/>} path='/'/>
           <Route element={<OtpVerify/>} path='/login'/>
           <Route element={<Home/>} path='/home'/>
-          <Route element={<Profile/>} path='/profile'/>
-          <Route element={<UpdateProfile/>} path='/update'/>
-          <Route element={<Sidebar/>} path='/bar'/>
+          <Route element={<UserPrivate><Profile/></UserPrivate>} path='/profile'/>
+          <Route element={<UserPrivate><UpdateProfile/></UserPrivate>} path='/update'/>
+          <Route element={<Sidebar/>} path='/bar'/>   
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
-          <Route element={<OwnerRegister/>} path='/owner'/>
-          <Route element={<HotelRegister/>} path='/hotelreg'/>
+          <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
+          <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>
+          <Route element={<AccountSelector/>} path='/acc'/>
         </Routes>
       </AuthContext.Provider>
 

@@ -1,14 +1,21 @@
 import { useContext, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import AuthContext from '../Context/AuthContext'
 import {useNavigate} from 'react-router-dom'
 import './Sidebar.css'
+import AccountSelector from '../HotelsPages/AccountSelector';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
 function OffCanvasExample({ name, ...props }) {
 
   const { user } = useContext(AuthContext)
 
+  // selector bar codes
+  const [select,setSelect] = useState(false)
+  const handleModalClose = () => setSelect(false)
+
+  // Side bar states
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -16,6 +23,19 @@ function OffCanvasExample({ name, ...props }) {
 
   return (
     <>
+      {select&&<Modal
+        open={select}
+        onClose={handleModalClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{display:'flex',justifyContent:'center',alignItems:'center',background:'rgba(255, 255, 255,0.2)',backdropFilter: 'blur(2px)'}}  
+        >
+          <Box style={{width:'35%',height:'50%',background:'whitesmoke',border:'none'}}>
+          <AccountSelector/>
+          </Box>
+
+      </Modal>}
+  
       <i style={{color:"white"}} variant="primary" className="me-2 fa-solid fa-list-check" onClick={handleShow}></i>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header className='offcanvas-header'>
@@ -35,6 +55,10 @@ function OffCanvasExample({ name, ...props }) {
               Profile
               <i className="fa-solid fa-id-card"></i>
             </li>
+            {user.is_owner&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
+              Manage Your Hotel
+              <i className="fa-solid fa-id-card"></i>
+            </li>}
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
