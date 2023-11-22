@@ -2,6 +2,102 @@
   background: linear-gradient(40deg,#03045e, #0096c7,#03045e)  !important;
   height: 80px;
 }
-.location-link{
-  color: white !important;
+
+
+
+/* new navbar design starts from here */
+
+.navbar-main-div{
+  width: 100%;
+  box-shadow: #03045e 0px  1px 15px 1px;
+  height: 10vh;
+}
+.navabr-second-div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+.navbar-logo-location-div{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1%;
+}
+.navbar-option-div{
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+}
+.navbar-option-ul{
+  display: flex;
+  list-style: none;
+  font-weight: bolder;
+  font-size: large;
+  align-items: center;
+  padding-top: 3%;
+}
+.navbar-option-ul li{
+  display: flex;
+  padding-right: 30px;
+  padding-left: 80px;
+}
+.navbar-option-ul div span:hover{
+  color: #006bc8;
+  cursor: pointer;
+}
+.navbar-logo-location-div div{
+  padding-left: 10PX;
+  padding-right: 40px;
+}
+.navbar-ul-search-input{
+  display: none;
+}
+.navbar-option-ul .navbar-ul-dropdown-li{
+  display: none;
+}
+
+@media screen and (max-width: 1370px) {
+  .navbar-option-ul .navbar-ul-offers-li,.navbar-option-ul .navbar-ul-cart-li, .navbar-option-ul .navbar-ul-sidebar-li {
+    display: none;
+  }
+  .navbar-ul-search-input{
+    display: inline-block;
+    border: 2px solid #070ac3;
+    border-radius: 5px;
+    color: whitesmoke;
+  }
+  .navbar-search-lense-icon{
+    display: none;
+  }
+  .navbar-option-ul .navbar-ul-dropdown-li{
+    display: block;
+  }
+  .navbar-option-ul li{
+    display: flex;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .navbar-logo-location-div div{
+    padding-left: 10PX;
+    padding-right: 20px;
+  }
+  .navbar-dropdown-li-options-div{
+    position: absolute;
+    right: 2%;
+    top: 11vh;
+    background: whitesmoke;
+    width: 20%;
+    padding: 2%;
+    border-top:5px solid #4946ee ;
+  }
+  .navbar-dropdown-li-options-div div{
+    padding:10px 10%;
+    border-bottom: 1px solid#4946ee;
+  }
+  .navbar-dropdown-li-options-div div:hover{
+    color: #006bc8;
+  }
+
 }

@@ -21,15 +21,15 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Set the background color of the track */
+    background: #f1f1f1; 
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #03045e; /* Set the color of the scrollbar thumb */
+    background: #03045e; 
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: black; /* Set the color of the scrollbar thumb on hover */
+    background: black; 
   }
   
   .account-item {
