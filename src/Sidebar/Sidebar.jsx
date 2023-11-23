@@ -30,7 +30,7 @@ function OffCanvasExample({ name, ...props }) {
         aria-describedby="modal-modal-description"
         style={{display:'flex',justifyContent:'center',alignItems:'center',background:'rgba(255, 255, 255,0.2)',backdropFilter: 'blur(2px)'}}  
         >
-          <Box style={{width:'35%',height:'50%',background:'whitesmoke',border:'none'}}>
+          <Box style={{width:'35%',height:'50%',background:'whitesmoke',border:'none',borderRadius:'10px',padding:'10px'}}>
           <AccountSelector/>
           </Box>
 

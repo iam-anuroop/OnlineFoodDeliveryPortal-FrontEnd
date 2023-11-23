@@ -3,7 +3,7 @@ import { Route,Routes } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 import AuthContext from './Context/AuthContext'
 import OtpVerify from './Authentication/OtpVerify'
-import Home from './pages/home'
+import Home from './pages/Home'
 import Location from './pages/Location'
 import Profile from './UsersPages/Profile'
 import UpdateProfile from './UsersPages/UpdateProfile'
@@ -13,6 +13,8 @@ import OwnerRegister from './HotelsPages/OwnerRegister'
 import HotelRegister from './HotelsPages/HotelRegister'
 import UserPrivate from './Private/UserPrivate'
 import AccountSelector from './HotelsPages/AccountSelector'
+import AdminHome from './Admin/AdminHome'
+import AdminHotelList from './Admin/AdminHotelList'
 
 
 function App() {
@@ -62,6 +64,7 @@ function App() {
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
           <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>
           <Route element={<AccountSelector/>} path='/acc'/>
+          <Route element={<AdminHome/>} path='/admin'/>
         </Routes>
       </AuthContext.Provider>
 

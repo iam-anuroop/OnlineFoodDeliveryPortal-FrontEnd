@@ -57,7 +57,12 @@
 .navbar-option-ul .navbar-ul-dropdown-li{
   display: none;
 }
-
+.navbar-drop-search{
+  display: none;
+}
+.navbar-drop-location-div{
+  display: none;
+}
 @media screen and (max-width: 1370px) {
   .navbar-option-ul .navbar-ul-offers-li,.navbar-option-ul .navbar-ul-cart-li, .navbar-option-ul .navbar-ul-sidebar-li {
     display: none;
@@ -101,3 +106,33 @@
   }
 
 }
+@media screen and (max-width: 940px) {
+  .navbar-drop-search{
+    display: block;
+  }
+  .navbar-ul-search-input{
+    display: none;
+  }
+  .navbar-option-ul .navabar-ul-search-li{
+    display: none;
+  }
+  .navbar-dropdown-li-options-div{
+    width: 30%;
+  }
+
+}
+@media screen and (max-width: 590px) {
+  .navbar-location-div{
+    display: none;
+  }
+  .navbar-drop-location-div{
+    display: block;
+    background: #03045e;
+    color: whitesmoke;
+    border-radius: 10px;
+  }
+  .navbar-dropdown-li-options-div{
+    width: 40%;
+  }
+}
+

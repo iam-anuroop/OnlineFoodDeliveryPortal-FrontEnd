@@ -12,7 +12,7 @@ import { toast} from 'react-toastify';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import Navbar from '../Navbar/Navbar'
+import Header from '../Navbar/Header'
 import './UpdateProfile.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -120,7 +120,7 @@ function UpdateProfile() {
 
   return (
     <>
-    <Navbar/>
+    <Header/>
     <div className='update-profile-main-div'>
         <h1 style={{color:'#03045e'}}>UpdateProfile</h1>
         {profile&&

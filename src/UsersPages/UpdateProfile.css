@@ -3,20 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 3%;
 }
 .update-profile-box-div{
     width: 500px !important;
-    background: rgba(203, 203, 252,0.5);
     padding: 3%;
     border-radius: 10px;
     font-weight: bold;
     color: #0077b6;
-
+    border: 1px solid rgb(4, 4, 112);
+    transition: box-shadow 0.3s ease;
 }
 .update-profile-box-div:hover{
-    background: rgba(203, 203, 252,0.6);
     color: #040404;
-    
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); 
+    transition: box-shadow 0.3s ease;
 }
 .update-profile-submit-button{
     

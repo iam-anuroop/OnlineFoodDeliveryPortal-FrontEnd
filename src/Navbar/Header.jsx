@@ -21,7 +21,7 @@ function Header() {
                     <div><h2>Food Delivery</h2></div>
                 </div>
                 <div>
-                    <div>
+                    <div className='navbar-location-div'>
                         {
                         user_loaction?(<a className="location-link nav-link" href="#">
                         <span style={{fontWeight:'bolder',borderBottom:'2px solid #03045e'}}>{user_loaction.city} </span>
@@ -37,7 +37,8 @@ function Header() {
                 <ul className="navbar-option-ul">
                     <li className="navabar-ul-search-li">
                         <div className="search-li-div">
-                            <span><span className='navbar-search-lense-icon'><i className="fa-solid fa-magnifying-glass"> </i> </span> Search</span>
+                            <span><span className='navbar-search-lense-icon'><i className="fa-solid fa-magnifying-glass"> </i> 
+                            </span> Search</span>
                             <span> <input className='navbar-ul-search-input' type="text" /></span>
                         </div>
                     </li>
@@ -60,9 +61,20 @@ function Header() {
                         <div className="dropdown-li-div">
                             <span><i class="fa-solid fa-bars" onClick={handleDrop}></i></span>
                             {showDrop&&<div className="navbar-dropdown-li-options-div">
+                                <div className='navbar-drop-location-div'>
+                                    {
+                                    user_loaction?(<a className="location-link nav-link" href="#">
+                                    <span style={{fontWeight:'bolder',borderBottom:'2px solid #03045e'}}>{user_loaction.city} </span>
+                                      {user_loaction.region} , {user_loaction.country} <i className="fa-solid fa-location"></i> 
+                                    </a>):
+                                    (<a className="location-link nav-link" href="#">
+                                    <i className="fa-solid fa-location-dot"></i> Location</a>)
+                                    }
+                                </div>
                                 <div>Offer</div>
                                 <div>Cart</div>
-                                <div>Settings</div>
+                                <div className='navbar-drop-search'>Search</div>
+                                <div><Sidebar /></div>
                             </div>}
                         </div>
                     </li>

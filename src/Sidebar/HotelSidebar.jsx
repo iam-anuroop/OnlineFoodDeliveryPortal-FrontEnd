@@ -34,6 +34,7 @@ function HotelSidebar() {
         backgroundColor={'white'}
         rootStyles={{
           color: 'black',
+          border:'1px solid #03045e'
         }}
       >
     <Menu>
