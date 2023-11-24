@@ -92,26 +92,7 @@ function Profile() {
               <Form.Label>Address</Form.Label>
               <Form.Control readOnly  name='user_address' defaultValue={profile.userprofile.properties.user_address&&profile.userprofile.properties.user_address} placeholder='address' />
             </Form.Group>
-
-            <Row className="mb-3">
-              {/* <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>City</Form.Label>
-                <Form.Control name='city' placeholder="Enter City"/>
-              </Form.Group> */}
-
-          {/* <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>State</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>...</option>
-                  </Form.Select>
-                </Form.Group> */}
-
-              {/* <Form.Group as={Col} controlId="formGridZip">
-                <Form.Label>Zip</Form.Label>
-                <Form.Control readOnly name='zip' placeholder="Enter Zip"/>
-              </Form.Group> */}
-            </Row>
+              <Button onClick={()=>navigate('/update')} className='btn' style={{border:'1px solid blue'}}>Edit</Button>
           </Form>
         </Box>
         </div>

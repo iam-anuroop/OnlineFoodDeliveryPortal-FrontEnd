@@ -36,7 +36,7 @@ function OffCanvasExample({ name, ...props }) {
 
       </Modal>}
   
-      <span onClick={handleShow} variant="primary"><i class="fa-solid fa-circle-chevron-down"></i> </span><span> Menu</span>
+      <span onClick={handleShow} variant="primary"><i className="fa-solid fa-circle-chevron-down"></i> </span><span> Menu</span>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header className='offcanvas-header'>
           <div className='sidebar-lock-icon-div'  onClick={handleClose}>

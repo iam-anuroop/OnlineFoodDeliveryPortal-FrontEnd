@@ -56,4 +56,8 @@
     width: 70px !important;
     height: 70px !important;
   }
+  .account-item:hover{
+    background: rgba(42, 42, 45, 0.1);
+  }
+  
   

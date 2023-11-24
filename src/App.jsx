@@ -15,6 +15,7 @@ import UserPrivate from './Private/UserPrivate'
 import AccountSelector from './HotelsPages/AccountSelector'
 import AdminHome from './Admin/AdminHome'
 import AdminHotelList from './Admin/AdminHotelList'
+import HotelLogin from './HotelsPages/HotelLogin'
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
           <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>
           <Route element={<AccountSelector/>} path='/acc'/>
+          <Route element={<HotelLogin/>} path='/hotellogin'/>
           <Route element={<AdminHome/>} path='/admin'/>
         </Routes>
       </AuthContext.Provider>

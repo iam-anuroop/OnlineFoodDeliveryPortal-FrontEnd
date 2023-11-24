@@ -59,7 +59,7 @@ function Header() {
                     </li>
                     <li className="navbar-ul-dropdown-li">
                         <div className="dropdown-li-div">
-                            <span><i class="fa-solid fa-bars" onClick={handleDrop}></i></span>
+                            <span><i className="fa-solid fa-bars" onClick={handleDrop}></i></span>
                             {showDrop&&<div className="navbar-dropdown-li-options-div">
                                 <div className='navbar-drop-location-div'>
                                     {

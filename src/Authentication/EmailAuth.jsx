@@ -42,7 +42,6 @@ function EmailAuth() {
         email:email
       });
       console.log('Registration successful:', response.data);
-      localStorage.setItem('token',JSON.stringify(response.data.token))
       localStorage.setItem('key',JSON.stringify(response.data.key))
       localStorage.setItem('email',JSON.stringify(response.data.email))
       navigate('/login')
