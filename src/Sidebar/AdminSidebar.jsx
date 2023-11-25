@@ -3,7 +3,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import './HotelSidebar.css'
 
 
-function HotelSidebar() {
+function AdminSidebar() {
     const [collapsed, setCollapsed] = React.useState(true);
     const [toggled, setToggled] = React.useState(false);
 
@@ -40,9 +40,10 @@ function HotelSidebar() {
     <Menu>
         <div className="hotel-side-bar-heading-div">
             {toggled && <i class="close-hotel-sidebar-toggle fa-solid fa-xmark" onClick={()=>setToggled(false)}></i>}
-            <h2>{collapsed?<i style={{fontSize:'80%'}} className="fa-solid fa-sliders"></i>:'Buisiness'}</h2>
+            <h2>{collapsed?<i style={{fontSize:'80%'}} className="fa-solid fa-sliders"></i>:'Business'}</h2>
         </div>
-        {!collapsed&&<p style={{color:'gray',paddingLeft:'8%',fontWeight:'bold',fontSize:'80%',paddingTop:'6%'}} className="hotel-side-bar-general">General</p>}
+        {!collapsed&&<p style={{color:'gray',paddingLeft:'8%',fontWeight:'bold',fontSize:'80%',paddingTop:'6%'}} className="hotel-side-bar-general">Options</p>}
+        {collapsed&&<hr style={{border:'3px solid gray', color:'gray'}}/>}
         {!collapsed&&<hr style={{border:'1px solid gray', color:'gray'}}/>}
         <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-utensils"></i>:'Foods'}</MenuItem>
         <hr style={{border:'1px solid gray', color:'blue'}}/>
@@ -54,4 +55,4 @@ function HotelSidebar() {
   )
 }
 
-export default HotelSidebar
+export default AdminSidebar

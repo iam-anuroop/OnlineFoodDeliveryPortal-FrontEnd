@@ -6,19 +6,20 @@ import AuthContext from '../Context/AuthContext'
 
 function AdminHotelList() {
     const {authTokens } = useContext(AuthContext)
-    const [hotels,setHotels] = useState('')
+    const [hotels,setHotels] = useState([])
 
     const getHotels = async () => {
 
         try{
-            const response = await axios.get('http://127.0.0.1:8000/user/profile/',{
+            const response = await axios.get('http://127.0.0.1:8000/adminpanel/adminapprovedhotels/',{
                 headers:{
                     'Content-Type':'application/json',
                     'Authorization': `Bearer ${authTokens.token.access}`
                 }
             }
             )
-            setHotels(response.data.data)
+            setHotels(response.data)
+            console.log(response.data);
         }
         catch{
             console.log('Cant fetch user profile');
@@ -29,7 +30,11 @@ function AdminHotelList() {
         getHotels()
     },[]) 
   return (
-    <div>AdminHotelList</div>
+    <div>
+        {hotels.map((res)=>(
+            <p key={res.id}>{res.hotel_name}</p>
+        ))}
+    </div>
   )
 }
 

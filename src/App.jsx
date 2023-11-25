@@ -12,10 +12,13 @@ import PhoneOtp from './Authentication/PhoneOtp'
 import OwnerRegister from './HotelsPages/OwnerRegister'
 import HotelRegister from './HotelsPages/HotelRegister'
 import UserPrivate from './Private/UserPrivate'
+import HotelPrivate from './Private/HotelPrivate'
+import AdminPrivate from './Private/AdminPrivate'
 import AccountSelector from './HotelsPages/AccountSelector'
 import AdminHome from './Admin/AdminHome'
 import AdminHotelList from './Admin/AdminHotelList'
 import HotelLogin from './HotelsPages/HotelLogin'
+import AdminNewHotel from './Admin/AdminNewHotel'
 
 
 function App() {
@@ -26,7 +29,7 @@ function App() {
   const [user,setUser] = useState(()=>
   localStorage.getItem('authTokens') ? jwtDecode(JSON.parse(localStorage.getItem('authTokens')).token.access) : null
   )
-  const [hotel, setHotel] = useState(() => {
+  const [hotelAuth, setHotelAuth] = useState(() => {
     const authTokens = JSON.parse(localStorage.getItem('authTokens'));
   
     if (authTokens && authTokens.token && authTokens.token.access) {
@@ -40,12 +43,13 @@ function App() {
     return null;
   });
   
-  console.log(user, 'k');
+  console.log(user, user.is_admin);
   
 
   const context = {
     authTokens,setAuthTokens,
     user,setUser,
+    hotelAuth,setHotelAuth
   }
 
   // const isAuthenticated = localStorage.getItem('location');
@@ -64,9 +68,11 @@ function App() {
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
           <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>
-          <Route element={<AccountSelector/>} path='/acc'/>
-          <Route element={<HotelLogin/>} path='/hotellogin'/>
-          <Route element={<AdminHome/>} path='/admin'/>
+          <Route element={<UserPrivate><AccountSelector/></UserPrivate>} path='/acc'/>
+          <Route element={<UserPrivate><HotelLogin/></UserPrivate>} path='/hotellogin'/>
+          <Route element={<AdminPrivate><AdminHome/></AdminPrivate>} path='/admin'/>
+          <Route element={<AdminPrivate><AdminHotelList/></AdminPrivate>} path='/adminhotellist'/>
+          <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
         </Routes>
       </AuthContext.Provider>
 
