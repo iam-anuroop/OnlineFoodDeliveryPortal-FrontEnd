@@ -19,6 +19,7 @@ import AdminHome from './Admin/AdminHome'
 import AdminHotelList from './Admin/AdminHotelList'
 import HotelLogin from './HotelsPages/HotelLogin'
 import AdminNewHotel from './Admin/AdminNewHotel'
+import HotelHome from './HotelsPages/HotelHome'
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
           <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>
           <Route element={<UserPrivate><AccountSelector/></UserPrivate>} path='/acc'/>
           <Route element={<UserPrivate><HotelLogin/></UserPrivate>} path='/hotellogin'/>
+          <Route element={<HotelPrivate><HotelHome/></HotelPrivate>} path='/hotelhome'/>
           <Route element={<AdminPrivate><AdminHome/></AdminPrivate>} path='/admin'/>
           <Route element={<AdminPrivate><AdminHotelList/></AdminPrivate>} path='/adminhotellist'/>
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
