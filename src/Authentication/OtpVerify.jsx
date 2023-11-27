@@ -44,6 +44,33 @@ const OtpVerify = () => {
   const key = JSON.parse(localStorage.getItem('key'))
 
 
+  const AddToCart = async(item) => {
+    const currentCart = JSON.parse(localStorage.getItem('cart'))
+    if(currentCart){
+        const cart = currentCart.reduce((acc, item) => {
+          acc[item.id] = item.count;
+          return acc;
+        }, {});
+        console.log(cart);
+        try {
+          const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
+            { 
+              cart:[cart]
+            },{
+              headers:{
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${authTokens.token.access}`
+              },
+            });
+            console.log(response);
+            localStorage.removeItem('cart')
+        }catch(error){
+          console.log(error);
+        }
+    }
+  }
+
+
   const VerifyOtp = async (e) => {
     e.preventDefault()
     try {
@@ -58,6 +85,7 @@ const OtpVerify = () => {
       localStorage.removeItem('email')
       localStorage.setItem('authTokens',JSON.stringify(response.data))
       toast.success('Login Successfull')
+      AddToCart();
       navigate('/home')
     } catch (error) {
       console.error('Verification failed:', error);

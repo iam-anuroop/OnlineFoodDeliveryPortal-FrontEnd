@@ -3,12 +3,14 @@ import AuthContext from '../Context/AuthContext'
 import Sidebar from '../Sidebar/Sidebar'
 
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
 
     const { user,authTokens } = useContext(AuthContext)
     const[showDrop,setShowDrop] = useState(false)
     const handleDrop = () =>setShowDrop(!showDrop)
+    const navigate = useNavigate()
 
     const user_loaction =localStorage.getItem('location')&&JSON.parse(localStorage.getItem('location'))
 
@@ -18,7 +20,7 @@ function Header() {
         <div className="navabr-second-div">
             <div className="navbar-logo-location-div">
                 <div className="navabr-logo-div">
-                    <div><h2>Food Delivery</h2></div>
+                    <div><h2 onClick={()=>navigate('/home')}>Food Delivery</h2></div>
                 </div>
                 <div>
                     <div className='navbar-location-div'>
@@ -48,7 +50,7 @@ function Header() {
                         </div>
                     </li>
                     <li className="navbar-ul-cart-li">
-                        <div className="cart-li-div">
+                        <div className="cart-li-div" onClick={()=>navigate('/cart')}>
                              <span><span><i className="fa-solid fa-cart-shopping"></i> </span> Cart</span>
                         </div>
                     </li>
@@ -72,7 +74,7 @@ function Header() {
                                     }
                                 </div>
                                 <div>Offer</div>
-                                <div>Cart</div>
+                                <div onClick={()=>navigate('/cart')}>Cart</div>
                                 <div className='navbar-drop-search'>Search</div>
                                 <div><Sidebar /></div>
                             </div>}

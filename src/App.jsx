@@ -20,6 +20,7 @@ import AdminHotelList from './Admin/AdminHotelList'
 import HotelLogin from './HotelsPages/HotelLogin'
 import AdminNewHotel from './Admin/AdminNewHotel'
 import HotelHome from './HotelsPages/HotelHome'
+import Cart from './pages/Cart'
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
           <Route element={<Location/>} path='/'/>
           <Route element={<OtpVerify/>} path='/login'/>
           <Route element={<Home/>} path='/home'/>
+          <Route element={<Cart/>} path='/cart'/>
           <Route element={<UserPrivate><Profile/></UserPrivate>} path='/profile'/>
           <Route element={<UserPrivate><UpdateProfile/></UserPrivate>} path='/update'/>
           <Route element={<Sidebar/>} path='/bar'/>   
