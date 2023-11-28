@@ -1,0 +1,117 @@
+/* Cart.css */
+
+/* Main Container */
+.cart-main-div {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Sections */
+  .cart-second-div {
+    padding: 20px;
+  }
+  
+  .cart-third-div {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .cart-fourth-div {
+    width: 70%;
+  }
+  
+  /* Address Section */
+  .cart-address-main-div {
+    margin-bottom: 20px;
+  }
+  
+  .cart-address-sub-div {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .cart-address12-div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .cart-address-1-div,
+  .cart-address-2-div {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .cart-address-1-div button,
+  .cart-address-2-div button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  /* Payment Section */
+  .cart-payment-main-div {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Cart Items and Billing Details Section */
+  .cart-fifth-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .cart-items-section,
+  .billing-details-section {
+    width: 100%;
+    padding: 3px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+  .cart-items-map-div{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #3498db;
+    padding: 3%;
+    margin: 5%;
+  }
+.cart-item-map-content{
+    display: flex;
+}
+.cart-number-inc-dec-btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  /* Responsive Styles (Adjust as needed) */
+  @media screen and (max-width: 768px) {
+    .cart-third-div {
+      flex-direction: column;
+    }
+  
+    .cart-fourth-div {
+      width: 100%;
+    }
+  
+    .cart-fifth-div {
+      flex-direction: column;
+    }
+  
+    .cart-items-section,
+    .billing-details-section {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+  

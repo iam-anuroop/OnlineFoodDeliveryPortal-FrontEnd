@@ -67,7 +67,7 @@ function App() {
           <Route element={<Cart/>} path='/cart'/>
           <Route element={<UserPrivate><Profile/></UserPrivate>} path='/profile'/>
           <Route element={<UserPrivate><UpdateProfile/></UserPrivate>} path='/update'/>
-          <Route element={<Sidebar/>} path='/bar'/>   
+          <Route element={<Sidebar/>} path='/bar'/>
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
           <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>

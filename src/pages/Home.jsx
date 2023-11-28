@@ -3,6 +3,8 @@ import Header from '../Navbar/Header'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext'
+import './Home.css'
+
 
 
 function Home() {
@@ -25,6 +27,7 @@ function Home() {
         },
       });
       console.log('Data fetched successfully');
+      console.log(response.data);
       setFoods(response.data)
     } catch (error) {
       console.error('Data fetching failed:', error);
@@ -64,7 +67,16 @@ function Home() {
       const existingItemIndex = currentCart.findIndex((cartItem) => cartItem.id === item.id);
   
       if (existingItemIndex !== -1) {
-        currentCart[existingItemIndex].count += 1;
+        const x = window.confirm("Item Alredy in cart You need to add this item again")
+        console.log(x);
+        if(x){
+          currentCart[existingItemIndex].count += 1;
+        }else{
+          console.log('canceled');
+        }
+        // if(currentCart[existingItemIndex].count<1){
+        //   currentCart.splice(existingItemIndex,1)
+        // }
       } else {
         item.count = 1;
         currentCart.push(item);
@@ -82,16 +94,30 @@ function Home() {
   }, []);
 
 
+
+  // {foods.map((item)=>(
+  //   <div key={item.id}>
+  //     <h4 style={{color:'black'}}>{item.food_name}</h4>
+  //     <button onClick={()=>!user?AddToCart(item):localCart(item)} style={{background:'green'}}>Add to cart</button>
+  //   </div>
+  // ))}
+
   return (
     <div>
       <Header/>
       <div>
-        {foods.map((item)=>(
-          <div key={item.id}>
-            <h4 style={{color:'black'}}>{item.food_name}</h4>
-            <button onClick={()=>user?AddToCart(item):localCart(item)} style={{background:'green'}}>Add to cart</button>
+    <div className="home-card-container">
+      {foods.map((item) => (
+        <div key={item.id} className="home-card">
+          <img src={item.hotel.profile_photo} alt={item.food_name} className="home-card-img" />
+          <div className="home-card-details">
+            <div className="home-card-title">{item.hotel.hotel_name}</div>
+            <div className="home-card-rating">Rating: {item.hotel.rating}</div>
+            <div className="home-card-price">Price: {item.food_price}</div>
           </div>
-        ))}
+        </div>
+      ))}
+    </div>
       </div>
     </div>
   )

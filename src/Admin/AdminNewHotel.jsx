@@ -48,6 +48,7 @@ function AdminNewHotel() {
 
   return (
     <div>
+      <h1>Accept hotel</h1>
       {hotels.map((res) => (
         <div key={res.id}>
           <h1>{res.hotel_name}</h1>

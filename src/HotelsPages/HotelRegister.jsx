@@ -25,6 +25,7 @@ function HotelRegister() {
     alt_contact:'',
     email:'',
     certificate:null,
+    profile_photo:null,
   })
 
   const handleChange = (e) => {
@@ -51,6 +52,7 @@ function HotelRegister() {
     data.append('alt_contact',formData.alt_contact);
     data.append('email',formData.email);
     data.append('certificate',formData.certificate);
+    data.append('profile_photo',formData.profile_photo);
 
 
     try{
@@ -109,6 +111,10 @@ function HotelRegister() {
                         <label className="form-label" htmlFor="form3Example4c">Name of Hotel</label>
                         <input required onChange={handleChange} type="text" id="form3Example4c" name='hotel_name' className="form-control"/>
                       </div>
+                      <div className="hotel-register-profile-div">
+                        <label className="form-label" htmlFor="form3Example4c">Profile</label>
+                        <input required onChange={handleChange} type="file" id="form3Example4c" name='profile_photo' className="form-control"/>
+                      </div>
                       <div className="hotel-register-description-div">
                         <label className="form-label" htmlFor="form3Example4c">Description/Details</label>
                         <textarea required onChange={handleChange} type="text" id="form3Example4c" name='description' className="hotel-register-text-area form-control"/>
@@ -125,6 +131,7 @@ function HotelRegister() {
                         <label className="form-label" htmlFor="form3Example4c">State</label>
                         <input required onChange={handleChange} type="text" id="form3Example4c" name='state' className="form-control"/>
                       </div>
+                      
                     </div>
                   </div>
                   <div className="hotel-register-form-right-div">
