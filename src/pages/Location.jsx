@@ -1,10 +1,11 @@
-import React, { useRef, useState ,useEffect } from 'react'
+import React, { useState ,useEffect } from 'react'
 import axios from 'axios';
 import EmailAuth from '../Authentication/EmailAuth';
-import Card from '@mui/material/Card';
-import { CardMedia, Input, Paper } from '@mui/material';
-import Button from '@mui/material/Button';
+// import Card from '@mui/material/Card';
+// import { CardMedia, Input, Paper } from '@mui/material';
+// import Button from '@mui/material/Button';
 import './Location.css'
+import { useNavigate } from 'react-router-dom';
 
 
 const textArray = ['Lazy to cook?', 'Hungry..?', 'Movie Time..?','Gaming mood.?'];
@@ -12,18 +13,20 @@ const textArray = ['Lazy to cook?', 'Hungry..?', 'Movie Time..?','Gaming mood.?'
 function Location() {
   const [location, setLocation] = useState(null);
   const [textIndex, setTextIndex] = useState(0)
+  const [availableLoc,setAvailableLoc] = useState([])
+  const [serchResult,setSerchResult] = useState(false)
+  const navigate = useNavigate()
 
 
   const getLocation = () => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-
-
         try {
           const response = await axios.post('http://127.0.0.1:8000/user/currentloc/');
           setLocation(response.data);
           localStorage.setItem('location',JSON.stringify(response.data))
+          navigate('/home')
         } catch (error) {
           console.error('Error fetching location:', error);
         }
@@ -32,6 +35,26 @@ function Location() {
       console.log('Geolocation is not available in this browser.');
     }
   };
+
+
+  const handleLocationSearch = async(e) =>{
+    try{
+      if(e.length>0){
+        setSerchResult(true)
+      }else{
+        setSerchResult(false)
+      }
+      const response = await axios.get(`http://127.0.0.1:8000/pages/searchlocation/?q=${e}`)
+      const data = response.data
+      if (response.status==200){
+        console.log(data);
+        setAvailableLoc(data)
+      }
+    }catch(error){
+      console.error(error);
+    }
+
+  }
 
 
   useEffect(() => {
@@ -69,12 +92,22 @@ function Location() {
               </div>
               <div className='locaion-input-div'>
                   <div className="inputloc-div">
-                    <input className='input-location' placeholder='Enter your location' type="text" />
+                    <input onChange={(e)=>handleLocationSearch(e.target.value.trim())} className='input-location' placeholder='Enter your location' type="text" />
                     <div className='loc-iconspan-div' onClick={getLocation}>
                       <i className="loc-icon fa-solid fa-location"></i><span className='span-location'>Locate me</span>
                     </div>
                     <button className='Ready-to-eat'>Ready to eat</button>
                   </div>
+                  {serchResult&&<div className='loacation-search-result-div'>
+                    <div>
+                        {availableLoc.map((loc)=>(
+                          <div>
+                            <h6>{loc.city},</h6>
+                            <p>{loc.city}, {loc.district}, {loc.state}</p>
+                          </div>
+                        ))}
+                    </div>
+                  </div>}
               </div>
             </div>
           </div>

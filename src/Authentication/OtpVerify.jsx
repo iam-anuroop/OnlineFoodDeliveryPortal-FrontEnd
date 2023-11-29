@@ -44,7 +44,7 @@ const OtpVerify = () => {
   const key = JSON.parse(localStorage.getItem('key'))
 
 
-  const AddToCart = async(item) => {
+  const AddToCart = async() => {
     const currentCart = JSON.parse(localStorage.getItem('cart'))
     if(currentCart){
         const cart = currentCart.reduce((acc, item) => {
@@ -67,6 +67,16 @@ const OtpVerify = () => {
         }catch(error){
           console.log(error);
         }
+    }
+  }
+
+
+  // save user location as possible
+  const userLocation = async() => {
+    try{
+
+    }catch{
+
     }
   }
 
