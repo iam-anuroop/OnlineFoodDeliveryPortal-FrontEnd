@@ -1,0 +1,38 @@
+.admin-selected-hotel-image{
+
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.admin-selected-hotel-certificate{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.admin-selected-id-proof{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.admin-selected-hotel-details-container{
+    display: flex;
+    padding: 2%;
+    gap: 1%;
+}
+.admin-selected-hotel-details-hotel-section{
+    width: 50%;
+    border: 2px solid black;
+    padding: 2%;
+}
+.admin-selected-hotel-details-owner-section{
+    width: 50%;
+    border: 2px solid black;
+    padding: 2%;
+}

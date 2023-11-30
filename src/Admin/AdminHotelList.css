@@ -1,0 +1,76 @@
+.admin-table-list-table-div{
+    width: 100%;
+    border: 2px solid rgb(2, 2, 152);
+    margin-left: 1%;
+    max-width: 520px;
+    overflow-x: scroll;
+    /* overflow-y: scroll; */
+}
+
+.admin-panel-pagination-page-number{
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.admin-panel-pagination-page-btn-active{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid rgb(3, 24, 251);
+    background: rgb(71, 70, 70);
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin-panel-pagination-page-btn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid rgb(4, 4, 4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin-hotel-list-main{
+    display: flex;
+}
+
+.search-hotel-hotel-list-admin-input{
+    margin: 1%;
+    width: 100%;
+    height: 5%;
+    align-items: center;
+    border: 2px solid rgb(2, 2, 94);
+    padding: 5%;
+    font-weight: 500;
+}
+
+/* .search-hotel-hotel-list-admin-input::placeholder{
+    font-weight: 800;
+    animation: typingAnimation 2s steps(30, end), cursorBlink 1s infinite;
+}
+@keyframes typingAnimation {
+    from {
+      width: 0;
+    }
+  }
+.search-hotel-hotel-list-admin-input:focus::placeholder{
+    animation: none
+} */
+
+
+.hotel-details-div-main{
+    margin-bottom: 2%;
+    margin-left: 1%;
+    margin-right: 3%;
+    margin-bottom: 2%;
+    width: 1100px;
+    background: rgb(194, 191, 191);
+    height: auto;
+}
+
+.admin-selected-hotel{
+    background: rgba(33, 206, 33, 0.3) !important;
+}
