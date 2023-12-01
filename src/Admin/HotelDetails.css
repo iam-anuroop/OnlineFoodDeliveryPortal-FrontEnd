@@ -7,15 +7,15 @@
     margin-bottom: 10px;
 }
 .admin-selected-hotel-certificate{
-    width: 200px;
-    height: 150px;
+    width: 600px;
+    height: 540px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 .admin-selected-id-proof{
-    width: 200px;
-    height: 150px;
+    width: 600px;
+    height: 540px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -23,16 +23,31 @@
 
 .admin-selected-hotel-details-container{
     display: flex;
-    padding: 2%;
+    padding: 1%;
     gap: 1%;
 }
 .admin-selected-hotel-details-hotel-section{
     width: 50%;
     border: 2px solid black;
-    padding: 2%;
+    padding: 1%;
 }
 .admin-selected-hotel-details-owner-section{
     width: 50%;
     border: 2px solid black;
     padding: 2%;
+}
+
+.show-certificate-btn{
+    background-color: rgba(90, 81, 81, 0.4);
+    color: whitesmoke;
+    width: 130px;
+    /* height: 50px; */
+    padding: 10px;
+    border: 2px solid rgb(2, 2, 97);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: scale 0.3s ease;
+}
+.show-certificate-btn:hover{
+    scale: 0.9;
 }

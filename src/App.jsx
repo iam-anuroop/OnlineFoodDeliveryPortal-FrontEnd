@@ -21,7 +21,7 @@ import HotelLogin from './HotelsPages/HotelLogin'
 import AdminNewHotel from './Admin/AdminNewHotel'
 import HotelHome from './HotelsPages/HotelHome'
 import Cart from './pages/Cart'
-
+import ManageFood from './HotelsPages/ManageFood'
 
 function App() {
 
@@ -74,12 +74,12 @@ function App() {
           <Route element={<UserPrivate><AccountSelector/></UserPrivate>} path='/acc'/>
           <Route element={<UserPrivate><HotelLogin/></UserPrivate>} path='/hotellogin'/>
           <Route element={<HotelPrivate><HotelHome/></HotelPrivate>} path='/hotelhome'/>
+          <Route element={<HotelPrivate><ManageFood/></HotelPrivate>} path='/managefood'/>
           <Route element={<AdminPrivate><AdminHome/></AdminPrivate>} path='/admin'/>
           <Route element={<AdminPrivate><AdminHotelList/></AdminPrivate>} path='/adminhotellist'/>
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
         </Routes>
       </AuthContext.Provider>
-
     </div>
   )
 }

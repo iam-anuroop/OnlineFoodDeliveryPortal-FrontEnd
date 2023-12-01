@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import Switch from '@mui/material/Switch';
 import axios from 'axios';
 import AuthContext from '../Context/AuthContext';
+import HotelSidebar from '../Sidebar/HotelSidebar'
+
 
 function ManageFood() {
   const { authTokens } = useContext(AuthContext);
@@ -57,6 +59,8 @@ function ManageFood() {
 
 
   return (
+    <div style={{display:'flex'}}>
+      <HotelSidebar/>
     <div>
       <h3>ManageFood</h3>
       <form onSubmit={handleSubmit}>
@@ -68,11 +72,7 @@ function ManageFood() {
           value={foodData.name}
           onChange={handleChange}
         />
-            <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-        />
+        <input type="file" accept="image/*" onChange={handleImageChange}/>
         <input
           style={{ border: '1px solid black' }}
           type="text"
@@ -113,6 +113,7 @@ function ManageFood() {
         />
         <button type="submit">Submit</button>
       </form>
+    </div>
     </div>
   );
 }

@@ -27,15 +27,27 @@ function AdminHotelList() {
       setPages(response.data.page_count);
       setCurrentPage(num)
       setSelectedHotel(response.data.data[0])
-      console.log(response.data);
-    } catch (error) {
+      } catch (error) {
       console.log('Can\'t fetch Hotels profile');
     }
   };
 
+  const searchHotel = async(q) => {
+    try{
+      if(q.length>0){
+        const response = await axios.get(`http://127.0.0.1:8000/hotel/hotelsearch/?q=${q}`)
+        const data = response.data
+        if (response.status==200){
+          setHotels(data)
+       }
+      }
+    }catch(error){
+      console.error(error);
+    }
+  }
+
 
   const getSpecificHotel = async(id) => {
-    console.log(id);
     try {
       const response = await axios.get(`http://127.0.0.1:8000/hotel/hotelprofile/?id=${id}`,{
         headers: {
@@ -44,11 +56,24 @@ function AdminHotelList() {
         }
       });
       setSelectedHotel(response.data);
-      console.log(response.data);
     }catch(error){
       console.log(error);
     }
   }
+
+  const handlePrevClick = () => {
+    if (currentpage > 1) {
+      getHotels(currentpage - 1);
+      setCurrentPage(currentpage - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (currentpage < pages.length) {
+      getHotels(currentpage + 1);
+      setCurrentPage(currentpage + 1)
+    }
+  };
 
   useEffect(() => {
     getHotels(1);
@@ -61,13 +86,28 @@ function AdminHotelList() {
       
     <div className='admin-hotel-list-main'>
     <div>
-    <input className='search-hotel-hotel-list-admin-input' type="text" placeholder='Search hotels...' />
+    <input onChange={(e)=>searchHotel(e.target.value.trim())} className='search-hotel-hotel-list-admin-input' type="text" placeholder='Search hotels...' />
     <div className="admin-table-list-table-div">
     <table className="table align-middle mb-0 bg-white">
           <thead className="bg-light">
             <tr>
-              <th>Name</th>
-              <th>Actions</th>
+              <th>Hotels</th>
+              <th>
+                <nav aria-label="Page navigation example">
+                  <ul className="pagination">
+                    <li className="page-item" onClick={handlePrevClick}>
+                      <a className="page-link"  aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li className="page-item">
+                      <a className="page-link" onClick={handleNextClick}  aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -96,15 +136,6 @@ function AdminHotelList() {
             ))}
           </tbody>
         </table>
-        </div>
-        <div style={{display:'flex',gap:'2%'}} className='admin-panel-pagination-page-number'>
-          {pages.map((count) => (
-            <div key={count} >
-            <button className={`${currentpage === count ? 'admin-panel-pagination-page-btn-active' : 'admin-panel-pagination-page-btn '}`} onClick={()=>getHotels(count)} >
-              {count}
-            </button>
-            </div>
-          ))}
         </div>
         </div>
         <div className="hotel-details-div-main">
