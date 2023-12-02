@@ -62,6 +62,7 @@ function ManageFood() {
     <div style={{display:'flex'}}>
       <HotelSidebar/>
     <div>
+      <div></div>
       <h3>ManageFood</h3>
       <form onSubmit={handleSubmit}>
         <input
