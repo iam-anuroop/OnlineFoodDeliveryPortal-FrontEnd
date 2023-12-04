@@ -3,6 +3,7 @@ import Switch from '@mui/material/Switch';
 import axios from 'axios';
 import AuthContext from '../Context/AuthContext';
 import HotelSidebar from '../Sidebar/HotelSidebar'
+import './ManageFood.css'
 
 
 function ManageFood() {
@@ -59,61 +60,85 @@ function ManageFood() {
 
 
   return (
-    <div style={{display:'flex'}}>
+    <div style={{display:'flex',width:'100%'}}>
       <HotelSidebar/>
-    <div>
-      <div></div>
-      <h3>ManageFood</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          style={{ border: '1px solid black' }}
-          type="text"
-          placeholder="Name of Food"
-          name="food_name"
-          value={foodData.name}
-          onChange={handleChange}
-        />
-        <input type="file" accept="image/*" onChange={handleImageChange}/>
-        <input
-          style={{ border: '1px solid black' }}
-          type="text"
-          placeholder="Type of Food"
-          name="food_type"
-          value={foodData.food_type}
-          onChange={handleChange}
-        />
-        <input
-          style={{ border: '1px solid black' }}
-          type="text"
-          placeholder="Details of food"
-          name="description"
-          value={foodData.description}
-          onChange={handleChange}
-        />
-        <input
-          style={{ border: '1px solid black' }}
-          type="text"
-          placeholder="Actual price"
-          name="food_price"
-          value={foodData.food_price}
-          onChange={handleChange}
-        />
-        <input
-          style={{ border: '1px solid black' }}
-          type="text"
-          placeholder="offer price"
-          name="offer_price"
-          value={foodData.offer_price}
-          onChange={handleChange}
-        />
-        <Switch
-          checked={foodData.is_veg}
-          onChange={handleSwitchChange}
-          name="is_veg"
-          color="primary"
-        />
-        <button type="submit">Submit</button>
-      </form>
+    <div style={{width:'100%'}}>
+    <div style={{width:'100%'}}>
+      <div className="manage-food-double-div">
+        <div className="food-manage-form-div">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="">Dish Name</label>
+            <input
+              style={{ border: '1px solid black' }}
+              type="text"
+              placeholder="Name of Food"
+              name="food_name"
+              value={foodData.name}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Image of Dish</label>
+            <input type="file" accept="image/*" onChange={handleImageChange}/>
+            <label htmlFor="">Type</label>
+            <input
+              style={{ border: '1px solid black' }}
+              type="text"
+              placeholder="Type of Food"
+              name="food_type"
+              value={foodData.food_type}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Details</label>
+            <input
+              style={{ border: '1px solid black' }}
+              type="text"
+              placeholder="Details of food"
+              name="description"
+              value={foodData.description}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Orginal Price</label>
+            <input
+              style={{ border: '1px solid black' }}
+              type="text"
+              placeholder="Actual price"
+              name="food_price"
+              value={foodData.food_price}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Offer Price</label>
+            <input
+              style={{ border: '1px solid black' }}
+              type="text"
+              placeholder="offer price"
+              name="offer_price"
+              value={foodData.offer_price}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Acivate if Dish is Vegitable</label>
+            <Switch
+              checked={foodData.is_veg}
+              onChange={handleSwitchChange}
+              name="is_veg"
+              color="primary"
+            />
+            <button type="submit">Add food</button>
+          </form>
+        </div>
+        <div className="food-manage-card-div">
+          <div className="food-manage-card">
+              <img src={foodData.food_image?URL.createObjectURL(foodData.food_image):'https://img.freepik.com/free-vector/man-eating-pasta_1087-14.jpg?size=626&ext=jpg&ga=GA1.1.1314413667.1699072698&semt=ais'} alt={foodData.food_name} className="food-manage-card-img" />
+              <div className="food-manage-card-details">
+                <div className="food-manage-card-title">Name: {foodData.food_name?foodData.food_name:''}</div>
+                <div className="food-manage-card-description">Details:  {foodData.description?foodData.description:''}</div>
+                <div className="food-manage-card-rating">Price: {foodData.food_price?foodData.food_price:''}</div>
+                <div className="food-manage-card-rating">Offer Price: {foodData.offer_price?foodData.offer_price:''}</div>
+                <div className="food-manage-card-location">Type: {foodData.food_type?foodData.food_type:''}</div>
+                <div className="food-manage-card-location">{foodData.is_veg?(<span><i style={{color:"green"}} className="fa-solid fa-leaf"></i> Veg</span>):(<span><i style={{color:"red"}} className="fa-solid fa-fish-fins"></i> Non veg</span>)}</div>
+              </div>
+          </div>
+        </div>
+      </div> 
+    </div>
     </div>
     </div>
   );

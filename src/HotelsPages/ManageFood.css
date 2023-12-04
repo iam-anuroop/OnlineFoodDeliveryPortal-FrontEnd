@@ -1,0 +1,106 @@
+/* Add your styles to the ManageFood.css file or include in your existing CSS */
+.manage-food-double-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.manage-food-container {
+    display: flex;
+  }
+  
+  .manage-food-section {
+    margin: 20px;
+  }
+  
+  .manage-food-section h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .food-manage-form-div {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+  }
+  
+  .food-manage-form-div form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .food-manage-form-div input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .food-manage-form-div button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .food-manage-card-div {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    width: 50%;
+    height: 80vh;
+    border-radius: 10px;
+  }
+  
+  /* ... (previous styles) */
+
+.food-manage-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Add transition for all properties over 0.3 seconds with ease timing function */
+  }
+  
+  .food-manage-card:hover{
+    box-shadow: 3px 3px 3px 3px#7e7474;
+  }
+
+  .food-manage-card img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5%;
+    margin-right: 20px;
+  }
+  
+  .food-manage-card-details {
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .food-manage-card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .food-manage-card-description,
+  .food-manage-card-rating,
+  .food-manage-card-location {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: 600;
+    color: #7e7474;
+  }
+  
+  /* Add more styles as needed */
+  

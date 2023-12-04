@@ -1,11 +1,14 @@
 import React from 'react'
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import './HotelSidebar.css'
+import { useNavigate } from 'react-router-dom'
 
 
 function HotelSidebar() {
     const [collapsed, setCollapsed] = React.useState(true);
     const [toggled, setToggled] = React.useState(false);
+
+    const navigate = useNavigate()
 
 
       const handleMouseEnter = () => {
@@ -38,13 +41,13 @@ function HotelSidebar() {
         }}
       >
     <Menu>
-        <div className="hotel-side-bar-heading-div">
+        <div onClick={()=>navigate('/hotelhome')} className="hotel-side-bar-heading-div">
             {toggled && <i class="close-hotel-sidebar-toggle fa-solid fa-xmark" onClick={()=>setToggled(false)}></i>}
             <h2>{collapsed?<i style={{fontSize:'80%'}} className="fa-solid fa-sliders"></i>:'Buisiness'}</h2>
         </div>
         {!collapsed&&<p style={{color:'gray',paddingLeft:'8%',fontWeight:'bold',fontSize:'80%',paddingTop:'6%'}} className="hotel-side-bar-general">General</p>}
         {!collapsed&&<hr style={{border:'1px solid gray', color:'gray'}}/>}
-        <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-utensils"></i>:'Foods'}</MenuItem>
+        <MenuItem onClick={()=>navigate('/managefood')} className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-utensils"></i>:'Foods'}</MenuItem>
         <hr style={{border:'1px solid gray', color:'blue'}}/>
         <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-truck-ramp-box"></i>:'Orders'}</MenuItem>
         <hr style={{border:'1px solid gray', color:'blue'}}/>
