@@ -47,7 +47,7 @@ const OtpVerify = () => {
   const AddToCart = async() => {
     const currentCart = JSON.parse(localStorage.getItem('cart'))
     if(currentCart){
-        const cart = currentCart.reduce((acc, item) => {
+        const cart = currentCart[Object.keys(currentCart)[0]].reduce((acc, item) => {
           acc[item.id] = item.count;
           return acc;
         }, {});
@@ -55,7 +55,8 @@ const OtpVerify = () => {
         try {
           const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
             { 
-              cart:[cart]
+              cart:[cart],
+              hotel:Object.keys(currentCart)[0]
             },{
               headers:{
                 'Content-Type':'application/json',

@@ -57,6 +57,8 @@ function FoodPage() {
                 }
             }
           } else {
+            // remove old hotel item and add new
+            delete currentCart[Object.keys(currentCart)[0]]
             currentCart[currentHotelId] = [{ ...item, count: 1 }];
           }
           localStorage.setItem('cart', JSON.stringify(currentCart));
@@ -69,27 +71,29 @@ function FoodPage() {
   
 
 
-    // const AddToCart = async(item) => {
-    //     const cart = {}
-    //     cart[item.id] = 1
-    //     console.log(cart);
-    //     console.log([cart]);
-    //     // const cart = currentCart.length > 0 ? currentCart : [{ [item.id]: 1 }];
-    //     try {
-    //       const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
-    //         { 
-    //           cart:[cart]
-    //         },{
-    //           headers:{
-    //             'Content-Type':'application/json',
-    //             'Authorization': `Bearer ${authTokens.token.access}`
-    //           },
-    //         });
-    //         console.log(response);
-    //     }catch(error){
-    //       console.log(error);
-    //     }
-    //   }
+    const AddToCart = async(item,number) => {
+        const cart = {}
+        cart[item.id] = 1
+        console.log(cart);
+        console.log([cart]);
+        // const cart = currentCart.length > 0 ? currentCart : [{ [item.id]: 1 }];
+        try {
+          const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
+            { 
+              hotel : item.hotel.id,
+              item : item.id,
+              count : number
+            },{
+              headers:{
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${authTokens.token.access}`
+              },
+            });
+            console.log(response);
+        }catch(error){
+          console.log(error);
+        }
+      }
 
     
     useEffect(() => {
@@ -103,8 +107,8 @@ function FoodPage() {
             foods.map((item)=>(
                 <div>
                     <h3>{item.food_name}</h3>
-                    <h2 onClick={()=>localCart(item,1)}>+</h2>
-                    <h2 onClick={()=>localCart(item,-1)}>-</h2>
+                    <h2 onClick={()=>user?AddToCart(item,1):localCart(item,1)}>+</h2>
+                    <h2 onClick={()=>user?AddToCart(item,-1):localCart(item,-1)}>-</h2>
                 </div>
             ))
         }
