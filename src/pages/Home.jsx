@@ -36,58 +36,62 @@ function Home() {
   };
 
 
-  const AddToCart = async(item) => {
-      const cart = {}
-      cart[item.id] = 1
-      console.log(cart);
-      console.log([cart]);
-      // const cart = currentCart.length > 0 ? currentCart : [{ [item.id]: 1 }];
-      try {
-        const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
-          { 
-            cart:[cart]
-          },{
-            headers:{
-              'Content-Type':'application/json',
-              'Authorization': `Bearer ${authTokens.token.access}`
-            },
-          });
-          console.log(response);
-      }catch(error){
-        console.log(error);
-      }
-    }
-  
-
-
-  const localCart = (item) => {
-    delete item.hotel;
-    const cart = localStorage.getItem('cart');
-    if (cart) {
-      const currentCart = JSON.parse(cart);
-      const existingItemIndex = currentCart.findIndex((cartItem) => cartItem.id === item.id);
-  
-      if (existingItemIndex !== -1) {
-        const x = window.confirm("Item Alredy in cart You need to add this item again")
-        console.log(x);
-        if(x){
-          currentCart[existingItemIndex].count += 1;
-        }else{
-          console.log('canceled');
-        }
-        // if(currentCart[existingItemIndex].count<1){
-        //   currentCart.splice(existingItemIndex,1)
-        // }
-      } else {
-        item.count = 1;
-        currentCart.push(item);
-      }
-      localStorage.setItem('cart', JSON.stringify(currentCart));
-    } else {
-      item.count = 1;
-      localStorage.setItem('cart', JSON.stringify([item]));
-    }
+  const hotelFoods = (id) => {
+    navigate(`foods/${id}`)
   }
+
+  // const AddToCart = async(item) => {
+  //     const cart = {}
+  //     cart[item.id] = 1
+  //     console.log(cart);
+  //     console.log([cart]);
+  //     // const cart = currentCart.length > 0 ? currentCart : [{ [item.id]: 1 }];
+  //     try {
+  //       const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
+  //         { 
+  //           cart:[cart]
+  //         },{
+  //           headers:{
+  //             'Content-Type':'application/json',
+  //             'Authorization': `Bearer ${authTokens.token.access}`
+  //           },
+  //         });
+  //         console.log(response);
+  //     }catch(error){
+  //       console.log(error);
+  //     }
+  //   }
+  
+
+
+  // const localCart = (item) => {
+  //   delete item.hotel;
+  //   const cart = localStorage.getItem('cart');
+  //   if (cart) {
+  //     const currentCart = JSON.parse(cart);
+  //     const existingItemIndex = currentCart.findIndex((cartItem) => cartItem.id === item.id);
+  
+  //     if (existingItemIndex !== -1) {
+  //       const x = window.confirm("Item Alredy in cart You need to add this item again")
+  //       console.log(x);
+  //       if(x){
+  //         currentCart[existingItemIndex].count += 1;
+  //       }else{
+  //         console.log('canceled');
+  //       }
+  //       // if(currentCart[existingItemIndex].count<1){
+  //       //   currentCart.splice(existingItemIndex,1)
+  //       // }
+  //     } else {
+  //       item.count = 1;
+  //       currentCart.push(item);
+  //     }
+  //     localStorage.setItem('cart', JSON.stringify(currentCart));
+  //   } else {
+  //     item.count = 1;
+  //     localStorage.setItem('cart', JSON.stringify([item]));
+  //   }
+  // }
   
   
   useEffect(() => {
@@ -154,7 +158,7 @@ function Home() {
 
         <div className="home-card-container">
           {hotels.map((item) => (
-            <div key={item.id} className="home-card">
+            <div key={item.id} className="home-card" onClick={()=>hotelFoods(item.id)}>
               <img src={`${base_url+item.profile_photo}`} alt={item.hotel_name} className="home-card-img" />
               <div className="home-card-details">
                 <div className="home-card-title">{item.hotel_name}</div>

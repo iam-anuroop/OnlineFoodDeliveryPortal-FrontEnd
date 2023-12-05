@@ -11,7 +11,7 @@ function ManageFood() {
   const [foodData, setFoodData] = useState({
     food_name: '',
     food_image: null,
-    food_type: '',
+    food_type: 'main',
     description: '',
     food_price: '',
     offer_price: '',
@@ -20,6 +20,7 @@ function ManageFood() {
 
   const handleChange = (event) => {
     setFoodData({ ...foodData, [event.target.name]: event.target.value });
+    console.log(foodData);
   };
 
   const handleSwitchChange = () => {
@@ -79,14 +80,18 @@ function ManageFood() {
             <label htmlFor="">Image of Dish</label>
             <input type="file" accept="image/*" onChange={handleImageChange}/>
             <label htmlFor="">Type</label>
-            <input
-              style={{ border: '1px solid black' }}
-              type="text"
-              placeholder="Type of Food"
+            <select
+              className='select-type-food'
+              id="food_type"
               name="food_type"
               value={foodData.food_type}
               onChange={handleChange}
-            />
+            >
+              <option value="main">Main Course</option>
+              <option value="starter">Starter</option>
+              <option value="bev">Beverage</option>
+              <option value="desert">Dessert</option>
+            </select>
             <label htmlFor="">Details</label>
             <input
               style={{ border: '1px solid black' }}

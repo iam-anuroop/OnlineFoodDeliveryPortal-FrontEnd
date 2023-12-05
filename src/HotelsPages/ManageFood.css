@@ -30,7 +30,7 @@
     flex-direction: column;
   }
   
-  .food-manage-form-div input {
+  .food-manage-form-div input ,.select-type-food{
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
