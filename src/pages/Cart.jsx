@@ -8,6 +8,7 @@ function Cart() {
   const { user,authTokens } = useContext(AuthContext)
   const [cartitems,setCartItems] = useState([])
   const [currentAddress,setCurrentAddress] = useState([])
+  const [cartChange,setCartchange] = useState(false)
 
   const fetchUserCart = async () => {
     try{
@@ -26,9 +27,73 @@ function Cart() {
     }
   }
 
+
+  const localCart = (item, number) => {
+    const cart = localStorage.getItem('cart');
+  
+    if (cart) {
+      const currentCart = JSON.parse(cart);
+  
+      const currentHotelId = item.hotel.id; // replace 'hotelId' with the actual property of your item that holds the hotel ID
+  
+      if (currentCart[currentHotelId]) {
+        const existingHotelCart = currentCart[currentHotelId];
+        const existingItemIndex = existingHotelCart.findIndex((cartItem) => cartItem.id === item.id);
+  
+        if (existingItemIndex !== -1) {
+          if (number === 1) {
+            existingHotelCart[existingItemIndex].count += 1;
+          } else if (number === -1) {
+            existingHotelCart[existingItemIndex].count =  existingHotelCart[existingItemIndex].count - 1;
+            if (existingHotelCart[existingItemIndex].count<1){
+                existingHotelCart.pop(existingItemIndex)
+            }
+          }
+        } else {
+            if (number===1){
+                existingHotelCart.push({ ...item, count: 1 });
+            }
+        }
+      } else {
+        // remove old hotel item and add new
+        delete currentCart[Object.keys(currentCart)[0]]
+        currentCart[currentHotelId] = [{ ...item, count: 1 }];
+      }
+      localStorage.setItem('cart', JSON.stringify(currentCart));
+    } else {
+      const newCart = { [item.hotel.id]: [{ ...item, count: 1 }] }; // replace 'hotelId' with the actual property of your item that holds the hotel ID
+      localStorage.setItem('cart', JSON.stringify(newCart));
+    }
+  };
+  
+
+
+
+const AddToCart = async(item,number) => {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
+        { 
+          hotel : item.hotel_id,
+          item : item.id,
+          count : number
+        },{
+          headers:{
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${authTokens.token.access}`
+          },
+        });
+        console.log(response);
+        setCartchange(!cartChange)
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+
+
   useEffect(()=>{
     fetchUserCart()
-  },[])
+  },[cartChange])
 
 
   
@@ -52,7 +117,7 @@ function Cart() {
                     </div>
                     <div className="cart-address-2-div">
                       <h6>Office Address</h6>
-                      <p>{currentAddress.office_address?profile.office_address:'add your address'}</p>
+                      <p>{currentAddress.office_address?currentAddress.office_address:'add your address'}</p>
                       <button>{currentAddress.office_address?'Edit':'Add new'}</button>
                     </div>
                   </div>
@@ -77,9 +142,9 @@ function Cart() {
                   </div>
                   <div className='cart-number-inc-dec-btn-div'>
                     <center style={{display:'flex'}}>
-                    <button>-</button>
+                    <button onClick={()=>user?AddToCart(item,-1):localCart(item,-1)}>-</button>
                     <p>{item.cart_item_count}</p>
-                    <button>+</button>
+                    <button onClick={()=>user?AddToCart(item,1):localCart(item,1)}>+</button>
                     </center>
                   </div>
                 </div>

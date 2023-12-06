@@ -24,6 +24,12 @@ import Cart from './pages/Cart'
 import ManageFood from './HotelsPages/ManageFood'
 import FoodPage from './pages/FoodPage'
 
+
+// stripe
+import Payment from './pages/Payment'
+// stripe
+
+
 function App() {
 
   const [authTokens,setAuthTokens] = useState(()=>
@@ -52,7 +58,7 @@ function App() {
   const context = {
     authTokens,setAuthTokens,
     user,setUser,
-    hotelAuth,setHotelAuth
+    hotelAuth,setHotelAuth,
   }
 
   // const isAuthenticated = localStorage.getItem('location');
@@ -80,6 +86,10 @@ function App() {
           <Route element={<AdminPrivate><AdminHome/></AdminPrivate>} path='/admin'/>
           <Route element={<AdminPrivate><AdminHotelList/></AdminPrivate>} path='/adminhotellist'/>
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
+
+
+
+          <Route element={<Payment/>} path='/payment'/>
         </Routes>
       </AuthContext.Provider>
     </div>

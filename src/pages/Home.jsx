@@ -40,58 +40,6 @@ function Home() {
     navigate(`foods/${id}`)
   }
 
-  // const AddToCart = async(item) => {
-  //     const cart = {}
-  //     cart[item.id] = 1
-  //     console.log(cart);
-  //     console.log([cart]);
-  //     // const cart = currentCart.length > 0 ? currentCart : [{ [item.id]: 1 }];
-  //     try {
-  //       const response = await axios.post('http://127.0.0.1:8000/user/addtocart/',
-  //         { 
-  //           cart:[cart]
-  //         },{
-  //           headers:{
-  //             'Content-Type':'application/json',
-  //             'Authorization': `Bearer ${authTokens.token.access}`
-  //           },
-  //         });
-  //         console.log(response);
-  //     }catch(error){
-  //       console.log(error);
-  //     }
-  //   }
-  
-
-
-  // const localCart = (item) => {
-  //   delete item.hotel;
-  //   const cart = localStorage.getItem('cart');
-  //   if (cart) {
-  //     const currentCart = JSON.parse(cart);
-  //     const existingItemIndex = currentCart.findIndex((cartItem) => cartItem.id === item.id);
-  
-  //     if (existingItemIndex !== -1) {
-  //       const x = window.confirm("Item Alredy in cart You need to add this item again")
-  //       console.log(x);
-  //       if(x){
-  //         currentCart[existingItemIndex].count += 1;
-  //       }else{
-  //         console.log('canceled');
-  //       }
-  //       // if(currentCart[existingItemIndex].count<1){
-  //       //   currentCart.splice(existingItemIndex,1)
-  //       // }
-  //     } else {
-  //       item.count = 1;
-  //       currentCart.push(item);
-  //     }
-  //     localStorage.setItem('cart', JSON.stringify(currentCart));
-  //   } else {
-  //     item.count = 1;
-  //     localStorage.setItem('cart', JSON.stringify([item]));
-  //   }
-  // }
   
   
   useEffect(() => {
@@ -99,13 +47,6 @@ function Home() {
   }, []);
 
 
-
-  // {foods.map((item)=>(
-  //   <div key={item.id}>
-  //     <h4 style={{color:'black'}}>{item.food_name}</h4>
-  //     <button onClick={()=>!user?AddToCart(item):localCart(item)} style={{background:'green'}}>Add to cart</button>
-  //   </div>
-  // ))}
   const items = [
     {
       name:'Biriyani',
