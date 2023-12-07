@@ -27,6 +27,7 @@ import FoodPage from './pages/FoodPage'
 
 // stripe
 import Payment from './pages/Payment'
+import SuccessPage from './pages/SuccessPage'
 // stripe
 
 
@@ -90,6 +91,7 @@ function App() {
 
 
           <Route element={<Payment/>} path='/payment'/>
+          <Route element={<SuccessPage/>} path='/success'/>
         </Routes>
       </AuthContext.Provider>
     </div>

@@ -6,7 +6,8 @@ import {
 } from "@stripe/react-stripe-js";
 import "./CheckoutForm.css";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({data}) {
+  console.log(data.clientSecret);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -18,15 +19,15 @@ export default function CheckoutForm() {
       return;
     }
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
+    // const clientSecret = new URLSearchParams(window.location.search).get(
+    //   "payment_intent_client_secret"
+    // );
 
-    if (!clientSecret) {
+    if (!data.clientSecret) {
       return;
     }
 
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+    stripe.retrievePaymentIntent(dataclientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
@@ -47,6 +48,9 @@ export default function CheckoutForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(stripe,"stripe");
+    console.log(elements,"elements");
+
     if (!stripe || !elements) {
       // Stripe.js hasn't yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
@@ -59,7 +63,9 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+
+        return_url: `http://localhost:3000/success/?payment_intent=${data.clientSecret}&payment_intent_client_secret=${data.intentid}&redirect_status=succeeded`,
+
       },
     });
 
