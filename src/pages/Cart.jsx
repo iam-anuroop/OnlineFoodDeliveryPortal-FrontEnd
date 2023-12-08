@@ -10,13 +10,14 @@ function Cart() {
   const [currentAddress,setCurrentAddress] = useState([])
   const [cartChange,setCartchange] = useState(false)
 
+  
   const fetchUserCart = async () => {
     try{
       const response = await axios.get('http://127.0.0.1:8000/user/addtocart/',
           {
             headers:{
               'Content-Type':'application/json',
-              'Authorization': `Bearer ${authTokens.token.access}`
+              'Authorization': `Bearer ${authTokens.token.access}` 
             },
           });
           setCartItems(response.data.cart_food_items)
