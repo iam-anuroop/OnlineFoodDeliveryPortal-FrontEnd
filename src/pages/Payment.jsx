@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { API_URL } from "../config/index";
-// import "./App.css";
+import axios from "axios";
+import AuthContext from "../Context/AuthContext";
 
 
 export default function Payment() {
-  const [message, setMessage] = useState("");
+
+  
+  const { user,authTokens } = useContext(AuthContext)
+  console.log(authTokens.token.access);
+
+  const handleCheckOut = async() =>{
+    try{
+      const response = await axios.post('http://127.0.0.1:8000/user/payment/',
+          {
+            headers:{
+              'Content-Type':'application/json',
+              'Authorization': `Bearer ${authTokens.token.access}` 
+            },
+          });
+
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success")) {
@@ -33,7 +51,7 @@ export default function Payment() {
       <h5>$20.00</h5>
       </div>
     </div>
-    <form action={'http://127.0.0.1:8000/user/payment/'} method="POST">
+    <form onSubmit={handleCheckOut} >
       <button type="submit">
         Checkout
       </button>
