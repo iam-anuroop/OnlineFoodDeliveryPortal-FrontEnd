@@ -10,20 +10,28 @@ export default function Payment() {
   const { user,authTokens } = useContext(AuthContext)
   console.log(authTokens.token.access);
 
-  const handleCheckOut = async() =>{
-    try{
-      const response = await axios.post('http://127.0.0.1:8000/user/payment/',
-          {
-            headers:{
-              'Content-Type':'application/json',
-              'Authorization': `Bearer ${authTokens.token.access}` 
-            },
-          });
-
-    }catch(error){
+  const handleCheckOut = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post(
+        'http://127.0.0.1:8000/user/payment/',
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authTokens.token.access}`
+          }
+        }
+      );
+  
+      // Handle the response as needed
+      console.log(response.data.url);
+      window.location.href = response.data.url;
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
+  
 
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
