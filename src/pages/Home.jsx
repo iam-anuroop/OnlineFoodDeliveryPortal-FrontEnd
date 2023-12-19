@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import Header from '../Navbar/Header'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../Context/AuthContext'
-import './Home.css'
+import AuthContext from '../Context/AuthContext';
+import './Home.css';
 
 
 

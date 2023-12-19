@@ -3,12 +3,14 @@ import Header from '../Navbar/Header'
 import AuthContext from '../Context/AuthContext'
 import axios from 'axios'
 import './Cart.css'
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
   const { user,authTokens } = useContext(AuthContext)
   const [cartitems,setCartItems] = useState([])
   const [currentAddress,setCurrentAddress] = useState([])
   const [cartChange,setCartchange] = useState(false)
+  const navigate = useNavigate()
 
                           
   
@@ -135,7 +137,7 @@ const AddToCart = async(item,number) => {
             {/* Cart Items and Billing Details Section */}
             <div className="cart-fifth-div">
               <div className="cart-items-section">
-                <h4>crat items</h4>
+                <h4>cart items</h4>
                 {/* Display cart items here */}
                 {cartitems.map((item) => (
                 <div key={item.id} className='cart-items-map-div'>
@@ -155,6 +157,9 @@ const AddToCart = async(item,number) => {
               <div className="billing-details-section">
                 <h2>Billing Details</h2>
                 {/* Display billing details here */}
+              </div>
+              <div className="continue-btn">
+                <button onClick={()=>navigate('/payment')}>Continue</button>
               </div>
             </div>
           </div>

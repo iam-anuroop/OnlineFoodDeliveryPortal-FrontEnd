@@ -23,8 +23,7 @@ import HotelHome from './HotelsPages/HotelHome'
 import Cart from './pages/Cart'
 import ManageFood from './HotelsPages/ManageFood'
 import FoodPage from './pages/FoodPage'
-
-
+import Maps from './pages/Maps'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
@@ -92,6 +91,7 @@ function App() {
 
           <Route element={<Payment/>} path='/payment'/>
           <Route element={<SuccessPage/>} path='/success'/>
+          <Route element={<Maps/>} path='/map'/>
         </Routes>
       </AuthContext.Provider>
     </div>

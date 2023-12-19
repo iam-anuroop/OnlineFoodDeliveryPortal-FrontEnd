@@ -27,7 +27,6 @@ function UpdateProfile() {
         username:'',
         phone:'',
         alt_phone:'',
-        user_address:'',
         city:'',
         zip:''
     })
@@ -70,8 +69,7 @@ function UpdateProfile() {
             data: {
               username: newValue.username ? newValue.username : profile.username,
               userprofile: {
-                alt_phone: newValue.alt_phone ? newValue.alt_phone : profile.userprofile.properties.alt_phone,
-                user_address: newValue.user_address ? newValue.user_address : profile.userprofile.properties.user_address
+                alt_phone: newValue.alt_phone ? newValue.alt_phone : profile.userprofile.properties.alt_phone
               }
             }
           });
@@ -154,11 +152,6 @@ function UpdateProfile() {
                 <Form.Control onChange={handleChange} name='alt_phone' type="text" defaultValue={profile.userprofile.properties.alt_phone&&profile.userprofile.properties.alt_phone} placeholder='alt phone' />
               </Form.Group>
             </Row>
-
-            <Form.Group className="mb-3" controlId="formGridAddress1">
-              <Form.Label>Address</Form.Label>
-              <Form.Control onChange={handleChange} name='user_address' defaultValue={profile.userprofile.properties.user_address&&profile.userprofile.properties.user_address} placeholder='address' />
-            </Form.Group>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridCity">

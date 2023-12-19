@@ -46,7 +46,8 @@
   }
   
   .cart-address-1-div button,
-  .cart-address-2-div button {
+  .cart-address-2-div button,
+  .continue-btn button {
     background-color: #3498db;
     color: #fff;
     padding: 5px 10px;
@@ -54,6 +55,7 @@
     border-radius: 3px;
     cursor: pointer;
   }
+
   
   /* Payment Section */
   .cart-payment-main-div {
