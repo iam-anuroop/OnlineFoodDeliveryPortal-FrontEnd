@@ -52,7 +52,6 @@ function App() {
     return null;
   });
   
-  console.log(user, user.is_admin);
   
 
   const context = {
@@ -88,10 +87,9 @@ function App() {
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
 
 
-
           <Route element={<Payment/>} path='/payment'/>
           <Route element={<SuccessPage/>} path='/success'/>
-          <Route element={<Maps/>} path='/map'/>
+          <Route element={<Maps/>} path='/map/:address'/>
         </Routes>
       </AuthContext.Provider>
     </div>

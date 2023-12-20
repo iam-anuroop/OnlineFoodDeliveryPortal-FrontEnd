@@ -117,12 +117,12 @@ const AddToCart = async(item,number) => {
                     <div className="cart-address-1-div">
                       <h6>Home Address</h6>
                       <p>{currentAddress.user_address}</p>
-                      <button>Edit</button>
+                      <button onClick={()=>navigate(`/map/${'home'}`)}>Edit</button>
                     </div>
                     <div className="cart-address-2-div">
                       <h6>Office Address</h6>
                       <p>{currentAddress.office_address?currentAddress.office_address:'add your address'}</p>
-                      <button>{currentAddress.office_address?'Edit':'Add new'}</button>
+                      <button onClick={()=>navigate(`/map/${'office'}`)}>{currentAddress.office_address?'Edit':'Add new'}</button>
                     </div>
                   </div>
                 </div>
