@@ -24,6 +24,7 @@ import Cart from './pages/Cart'
 import ManageFood from './HotelsPages/ManageFood'
 import FoodPage from './pages/FoodPage'
 import Maps from './pages/Maps'
+import FoodItems from './HotelsPages/FoodItems'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
@@ -85,11 +86,10 @@ function App() {
           <Route element={<UserPrivate><HotelLogin/></UserPrivate>} path='/hotellogin'/>
           <Route element={<HotelPrivate><HotelHome/></HotelPrivate>} path='/hotelhome'/>
           <Route element={<HotelPrivate><ManageFood/></HotelPrivate>} path='/managefood'/>
+          <Route element={<HotelPrivate><FoodItems/></HotelPrivate>} path='/fooditems'/>
           <Route element={<AdminPrivate><AdminHome/></AdminPrivate>} path='/admin'/>
           <Route element={<AdminPrivate><AdminHotelList/></AdminPrivate>} path='/adminhotellist'/>
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
-
-
           <Route element={<Payment/>} path='/payment/:address'/>
           <Route element={<SuccessPage/>} path='/success'/>
           <Route element={<Maps/>} path='/map/:address'/>

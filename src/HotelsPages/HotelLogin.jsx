@@ -65,7 +65,7 @@ function HotelLogin() {
       localStorage.removeItem('hotel_email')
       localStorage.setItem('authTokens',JSON.stringify(response.data))
       toast.success('Logined to Hotel')
-      // navigate('/home')
+      navigate('/hotelhome')
     } catch (error) {
       console.error('Verification failed:', error);
       toast.warning('Something Wrong')

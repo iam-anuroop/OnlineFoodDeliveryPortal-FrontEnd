@@ -39,7 +39,10 @@ useEffect(() => {
 },[])
 
   return (
-    <div>{sessionId}</div>
+    <div>
+      <Header/>
+      <div>{sessionId}</div>
+    </div>
   )
 }
 
