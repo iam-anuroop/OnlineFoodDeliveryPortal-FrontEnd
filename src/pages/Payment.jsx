@@ -3,6 +3,7 @@ import { API_URL } from "../config/index";
 import axios from "axios";
 import AuthContext from "../Context/AuthContext";
 import Header from '../Navbar/Header'
+import { useParams } from "react-router-dom";
 
 
 
@@ -12,6 +13,8 @@ export default function Payment() {
   const [ total,setTotal ] = useState([])
   const { user,authTokens } = useContext(AuthContext)
   const base_url = 'http://127.0.0.1:8000/'
+
+  const {address} = useParams()
 
   
 
@@ -42,7 +45,7 @@ export default function Payment() {
     e.preventDefault()
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/user/payment/',
+        `http://127.0.0.1:8000/user/payment/?address=${address}`,
         {},
         {
           headers: {

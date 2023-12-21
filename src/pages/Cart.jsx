@@ -3,7 +3,7 @@ import Header from '../Navbar/Header'
 import AuthContext from '../Context/AuthContext'
 import axios from 'axios'
 import './Cart.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useParams } from 'react-router-dom'
 
 function Cart() {
   const { user,authTokens } = useContext(AuthContext)
@@ -11,6 +11,9 @@ function Cart() {
   const [currentAddress,setCurrentAddress] = useState([])
   const [cartChange,setCartchange] = useState(false)
   const navigate = useNavigate()
+  const {params} = useParams()
+  const [selectedAddress, setSelectedAddress] = useState('');
+
 
                           
   
@@ -101,7 +104,6 @@ const AddToCart = async(item,number) => {
 
 
   
-
   return (
     <div>
       <Header />
@@ -114,12 +116,12 @@ const AddToCart = async(item,number) => {
                 <div className="cart-address-sub-div">
                   <h2>Delivery Addresses</h2>
                   <div className='cart-address12-div'>
-                    <div className="cart-address-1-div">
+                    <div className='cart-address-1-div' id={params==='home'?'ad-1':''} onClick={()=>navigate(`/cart/${'home'}`)}>
                       <h6>Home Address</h6>
-                      <p>{currentAddress.user_address}</p>
-                      <button onClick={()=>navigate(`/map/${'home'}`)}>Edit</button>
+                      <p>{currentAddress.user_address?currentAddress.user_address:'add your Address'}</p>
+                      <button onClick={()=>navigate(`/map/${'home'}`)}>{currentAddress.user_address?'Edit':'Add'}</button>
                     </div>
-                    <div className="cart-address-2-div">
+                    <div className='cart-address-2-div' id={params==='office'?'ad-2':''} onClick={()=>navigate(`/cart/${'office'}`)}>
                       <h6>Office Address</h6>
                       <p>{currentAddress.office_address?currentAddress.office_address:'add your address'}</p>
                       <button onClick={()=>navigate(`/map/${'office'}`)}>{currentAddress.office_address?'Edit':'Add new'}</button>
@@ -159,7 +161,8 @@ const AddToCart = async(item,number) => {
                 {/* Display billing details here */}
               </div>
               <div className="continue-btn">
-                <button onClick={()=>navigate('/payment')}>Continue</button>
+                {params&&<button  onClick={()=>navigate(`/payment/${params}`)}>Continue</button>}
+                {!params&&<button >Choose Address to continue</button>}
               </div>
             </div>
           </div>

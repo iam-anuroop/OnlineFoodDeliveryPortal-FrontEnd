@@ -52,12 +52,14 @@ function App() {
     return null;
   });
   
+  // const [markerPosition, setMarkerPosition] = useState([ 11.0808,76.0702]);
   
 
   const context = {
     authTokens,setAuthTokens,
     user,setUser,
     hotelAuth,setHotelAuth,
+    // markerPosition,setMarkerPosition,
   }
 
   // const isAuthenticated = localStorage.getItem('location');
@@ -72,6 +74,7 @@ function App() {
           <Route element={<Home/>} path='/home'/>
           <Route element={<FoodPage/>} path='/home/foods/:id'/>
           <Route element={<Cart/>} path='/cart'/>
+          <Route element={<Cart/>} path='/cart/:params'/>
           <Route element={<UserPrivate><Profile/></UserPrivate>} path='/profile'/>
           <Route element={<UserPrivate><UpdateProfile/></UserPrivate>} path='/update'/>
           <Route element={<Sidebar/>} path='/bar'/>
@@ -87,7 +90,7 @@ function App() {
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
 
 
-          <Route element={<Payment/>} path='/payment'/>
+          <Route element={<Payment/>} path='/payment/:address'/>
           <Route element={<SuccessPage/>} path='/success'/>
           <Route element={<Maps/>} path='/map/:address'/>
         </Routes>
