@@ -1,48 +1,56 @@
 .hotel-home-main-1 {
-    display: flex;
-    width: 100%;
-  }
-  
-  .hotel-home-main-2 {
-    flex: 1; /* This will make it take up the remaining space */
-  }
-  
-  .hotel-home-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotel-home-main-2 {
+  flex: 1;
+}
+
+.hotel-home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.hotel-home-item {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: calc(50% - 20px); /* Two items per row, with some margin */
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.hotel-home-heading {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.hotel-home-description {
+  margin-bottom: 15px;
+}
+
+.hotel-home-button {
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hotel-home-button:hover {
+  background-color: #2980b9;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
   .hotel-home-item {
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;  
-    width: 300px;
-    height: 80%;
+    width: calc(100% - 20px); /* Single column, with some margin */
   }
-  
-  .hotel-home-heading {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .hotel-home-description {
-    margin-bottom: 15px;
-  }
-  
-  .hotel-home-button {
-    padding: 8px 16px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .hotel-home-button:hover {
-    background-color: #2980b9;
-  }
-  
+}

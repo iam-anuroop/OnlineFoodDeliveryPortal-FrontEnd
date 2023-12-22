@@ -25,7 +25,7 @@ function HotelSidebar() {
   return (
     <div style={{position:'relative'}}>
       <div className='toggle-icon-hotel-sidebar'>
-      <i onClick={()=>setToggled(true)} style={{position:'absolute',top:'3%',paddingLeft:'30px',color:'yellow'}} className=" fa-solid fa-sliders"></i>
+      <i onClick={()=>setToggled(true)} style={{position:'absolute',top:'3%',paddingLeft:'30px',color:'yellow',zIndex:'5'}} className=" fa-solid fa-sliders"></i>
       </div>
     <Sidebar
         onMouseEnter={handleMouseEnter}

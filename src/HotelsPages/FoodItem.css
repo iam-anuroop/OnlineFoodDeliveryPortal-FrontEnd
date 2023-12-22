@@ -1,0 +1,80 @@
+/* FoodItem.css */
+
+.food-item-main-1 {
+    display: flex;
+  }
+  
+  .food-item-main-2 {
+    flex: 1;
+    display: flex;
+  }
+  
+  .food-list {
+    overflow-y: auto;
+    max-height: 100vh;
+    padding: 20px;
+  }
+  
+  .food-item-card {
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .food-item-card:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .selected {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .food-item-image {
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .food-details {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .food-details-image {
+    max-width: 100%; /* Ensure the image is responsive */
+    max-height: 300px; /* Set a max-height to control the size */
+    height: auto;
+    object-fit: contain; /* Preserve aspect ratio and fit within the container */
+  }
+  
+  .food-details-title {
+    margin-top: 10px;
+  }
+  
+  .food-details-price,
+  .food-details-type {
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  
+  .edit-button {
+    margin-top: 20px;
+  }
+  
+  .food-details-placeholder {
+    font-size: 18px;
+    margin-top: 50px;
+    color: #6c757d;
+  }
+  .food-item-edit-input{
+    border: 1px solid black;
+    width: 100%;
+  }
+  .food-item-edit-form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 50%;
+    align-items: start;
+  }
+  
