@@ -4,7 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    margin-top: 50px;
   }
   
   .d-person-reg-form {

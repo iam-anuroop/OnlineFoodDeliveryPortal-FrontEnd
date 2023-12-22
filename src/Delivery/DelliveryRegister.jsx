@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './DeliveryReg.css';
+import Header from '../Navbar/Header';
+
 
 const DelliveryRegister = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +25,8 @@ const DelliveryRegister = () => {
   };
 
   return (
+    <div>
+      <Header/>
     <div className="d-person-reg-container">
       <form className="d-person-reg-form" onSubmit={handleSubmit}>
         <h2 className="d-person-reg-title">Person Registration</h2>
@@ -75,6 +79,8 @@ const DelliveryRegister = () => {
         </button>
       </form>
     </div>
+    </div>
+
   );
 };
 
