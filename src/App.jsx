@@ -31,6 +31,9 @@ import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
 // stripe
 
+// Chat
+import Chat from './Chat/Chat'
+
 
 function App() {
 
@@ -80,6 +83,7 @@ function App() {
           <Route element={<UserPrivate><Profile/></UserPrivate>} path='/profile'/>
           <Route element={<UserPrivate><UpdateProfile/></UserPrivate>} path='/update'/>
           <Route element={<UserPrivate><DelliveryRegister/></UserPrivate>} path='/delreg'/>
+          <Route element={<UserPrivate><Chat/></UserPrivate>} path='/chat'/>
           <Route element={<Sidebar/>} path='/bar'/>
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
