@@ -13,8 +13,15 @@ function OffCanvasExample({ name, ...props }) {
 
   // selector bar codes
   const [select,setSelect] = useState(false)
+  const [owner,setOwner] = useState(false)
   const handleModalClose = () => setSelect(false)
 
+  try{
+    user.is_owner&&setOwner(true)
+
+  }catch{
+    console.log('No owner');
+  }
   // Side bar states
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -57,7 +64,7 @@ function OffCanvasExample({ name, ...props }) {
               Profile
               <i className="fa-solid fa-id-card"></i>
             </li>
-            {user.is_owner&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
+            {owner&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
               Manage Your Hotel
               <i className="fa-solid fa-id-card"></i>
             </li>}
