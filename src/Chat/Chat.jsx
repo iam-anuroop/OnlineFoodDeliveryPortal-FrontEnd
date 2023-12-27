@@ -28,8 +28,9 @@ function Chat() {
       const data = JSON.parse(message.data);
       console.log('Received message:', data);
 
-      // Update messages state with the new message
       setMessages((prevMessages) => [...prevMessages, data]);
+      console.log(typeof(data));
+      saveMessage(data);
     };
 
     client.onerror = (error) => {
@@ -42,7 +43,6 @@ function Chat() {
 
     // Cleanup function
     return () => {
-      // Close WebSocket connection or perform any cleanup when component unmounts
       client.close();
     };
   }, [client]);
@@ -56,11 +56,6 @@ function Chat() {
     // Send the message to the server
     client.send(JSON.stringify(messageData));
 
-    // saveMessage(messageData);
-
-    
-
-    // Clear the message input field
     setMessageInput('');
   };
 

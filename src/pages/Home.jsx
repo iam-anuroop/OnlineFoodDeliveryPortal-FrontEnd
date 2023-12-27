@@ -11,7 +11,7 @@ function Home() {
   const navigate = useNavigate()
   const [hotels,setHotels] = useState([])
   const { user,authTokens } = useContext(AuthContext)
-  const base_url = 'http://127.0.0.1:8000/'
+  const base_url = 'http://127.0.0.1:8000'
 
 
   const nearestHotel = async () => {
@@ -100,7 +100,8 @@ function Home() {
         <div className="home-card-container">
           {hotels.map((item) => (
             <div key={item.id} className="home-card" onClick={()=>hotelFoods(item.id)}>
-              <img src={`${base_url+item.profile_photo}`} alt={item.hotel_name} className="home-card-img" />
+              <img src={`${base_url}${item.profile_photo}`} alt={item.hotel_name} className="home-card-img" />
+
               <div className="home-card-details">
                 <div className="home-card-title">{item.hotel_name}</div>
                 <div className="home-card-description"> {item.description}</div>
