@@ -3,6 +3,8 @@ import Header from '../Navbar/Header'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext'
+import './Home.css'
+import './Foodpage.css'
 
 
 
@@ -12,6 +14,7 @@ function FoodPage() {
     console.log(id,'iddddd');
     const navigate = useNavigate()
     const [foods,setFoods] = useState([])
+    const [cartitems,setCartItems] = useState([])
     const { user,authTokens } = useContext(AuthContext)
   
   
@@ -67,6 +70,26 @@ function FoodPage() {
           localStorage.setItem('cart', JSON.stringify(newCart));
         }
       };
+
+
+
+      const getCartItems = async() => {
+        try{
+          const response = await axios.get('http://127.0.0.1:8000/user/addtocart/',
+              {
+                headers:{
+                  'Content-Type':'application/json',
+                  'Authorization': `Bearer ${authTokens.token.access}` 
+                },
+              });
+
+              const cartItemIds = response.data.cart_food_items.map(item => item.id);
+
+              setCartItems(cartItemIds);
+        }catch(error){
+            console.log(error);
+        }
+      }
       
   
 
@@ -97,23 +120,59 @@ function FoodPage() {
 
     
     useEffect(() => {
+      getCartItems();
         hotelFoods();
       }, []);
 
+
+      // console.log(foods[0].hotel.hotel_name);
+      
   return (
     <div>
-        <h1>FoodPage</h1>
+      <Header/>
+        <div className='food-page-hotel-heading'>
+          <div>
+          <h3>Foods of {foods.length>0&&foods[0].hotel.hotel_name}</h3>
+          </div>
+        </div>
         {
-            foods.map((item)=>(
-                <div>
-                    <h3>{item.food_name}</h3>
-                    <h2 onClick={()=>user?AddToCart(item,1):localCart(item,1)}>+</h2>
-                    <h2 onClick={()=>user?AddToCart(item,-1):localCart(item,-1)}>-</h2>
-                </div>
-            ))
+                <div className="home-card-container">
+                {foods.map((item) => (
+                  <div key={item.id} className="food-card" onClick={()=>hotelFoods(item.id)}>
+                    <img src={item.food_image} alt={item.food_name} className="home-card-img" />
+      
+                    <div className="home-card-details">
+                      <div className="home-card-title">{item.food_name}</div>
+                      <div className="home-card-description">{item.description}</div>
+                      <div style={{display:'flex',gap:'5%'}}>
+                      <div className="home-card-location">
+                        <span style={{textDecoration:'line-through'}} className="strike-through">${item.food_price}</span>
+                      </div>
+                      <div style={{color:'black',fontWeight:'bolder'}} className="home-card-location">${item.offer_price}</div>
+                      </div>
+                      {cartitems.includes(item.id)?(
+                        <button className='food-page-already-in-cart'>Already in cart</button>
+                        ):(
+                      <button className='food-page-add-to-cart' onClick={()=>{
+                        user?AddToCart(item,1):localCart(item,1);
+                        setCartItems([...cartitems,item.id])
+                      }}>Add to cart</button>
+                    )
+                      }
+                    </div>
+                  </div>
+                ))}
+              </div>
         }
     </div>
   )
 }
 
 export default FoodPage
+
+
+                {/* <div>
+                    <h3>{item.food_name}</h3>
+                    <h2 onClick={()=>user?AddToCart(item,1):localCart(item,1)}>+</h2>
+                    <h2 onClick={()=>user?AddToCart(item,-1):localCart(item,-1)}>-</h2>
+                </div> */}

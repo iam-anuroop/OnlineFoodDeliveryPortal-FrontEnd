@@ -27,13 +27,12 @@ import Maps from './pages/Maps'
 import FoodItems from './HotelsPages/FoodItems'
 import DelliveryRegister from './Delivery/DelliveryRegister'
 import Myorders from './UsersPages/Myorders'
+import Manageorder from './UsersPages/Manageorder'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
 // stripe
 
-// Chat
-import Chat from './Chat/Chat'
 
 
 function App() {
@@ -84,8 +83,8 @@ function App() {
           <Route element={<UserPrivate><Profile/></UserPrivate>} path='/profile'/>
           <Route element={<UserPrivate><UpdateProfile/></UserPrivate>} path='/update'/>
           <Route element={<UserPrivate><DelliveryRegister/></UserPrivate>} path='/delreg'/>
-          <Route element={<UserPrivate><Chat/></UserPrivate>} path='/chat'/>
           <Route element={<UserPrivate><Myorders/></UserPrivate>} path='/myorders'/>
+          <Route element={<UserPrivate><Manageorder/></UserPrivate>} path='/manageorder/:id'/>
           <Route element={<Sidebar/>} path='/bar'/>
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>

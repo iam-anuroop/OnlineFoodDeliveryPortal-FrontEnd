@@ -1,0 +1,52 @@
+.food-page-hotel-heading{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+.food-page-hotel-heading div{
+    width: 70%;
+    box-shadow: inset 0px 0px 20px rgba(49, 2, 107, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: rgb(10, 10, 168);
+    border-radius: 8px;
+}
+
+
+.food-page-add-to-cart{
+    background:  rgb(7, 112, 48);
+    padding: 8px;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+.food-page-already-in-cart{
+    background:  rgb(107, 135, 205);
+    padding: 8px;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+.food-card{
+    flex: 0 0 calc(33% - 20px); /* Adjust the percentage based on the number of cards you want in a row */
+    margin: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid rgba(154, 150, 150, 0.3);
+    border-style: dashed;
+    transition: scale 1.3s ease;
+}
+.food-card:hover {
+    box-shadow: 0px 0px 10px rgba(72, 2, 158, 0.3);
+    transition: scale 0.3s ease;
+  }
+  .food-card:hover .home-card-img{
+    scale: 0.9;
+  }

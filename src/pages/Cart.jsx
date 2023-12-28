@@ -102,7 +102,7 @@ const AddToCart = async(item,number) => {
     fetchUserCart()
   },[cartChange])
 
-
+console.log(cartitems);
   
   return (
     <div>
@@ -148,13 +148,14 @@ const AddToCart = async(item,number) => {
                   </div>
                   <div className='cart-number-inc-dec-btn-div'>
                     <center style={{display:'flex'}}>
-                    <button onClick={()=>user?AddToCart(item,-1):localCart(item,-1)}>-</button>
+                    <button className='inc-dec-btn' onClick={()=>user?AddToCart(item,-1):localCart(item,-1)}>-</button>
                     <p>{item.cart_item_count}</p>
-                    <button onClick={()=>user?AddToCart(item,1):localCart(item,1)}>+</button>
+                    <button className='inc-dec-btn' onClick={()=>user?AddToCart(item,1):localCart(item,1)}>+</button>
                     </center>
                   </div>
                 </div>
                 ))}
+                {cartitems.length>0 &&<button onClick={()=>navigate(`/home/foods/${cartitems[0].hotel_id}`)}>Continue Shopping</button>}
               </div>
               <div className="billing-details-section">
                 <h2>Billing Details</h2>

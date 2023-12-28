@@ -1,0 +1,22 @@
+.chat-box-input-div{
+    margin-top: 2%; 
+    display: flex;
+    gap: 10px;
+}
+
+.chat-box-input{
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    padding: 2%;
+}
+.chat-box-send-btn{
+    padding: 2%;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3498db;
+    color: white;
+}

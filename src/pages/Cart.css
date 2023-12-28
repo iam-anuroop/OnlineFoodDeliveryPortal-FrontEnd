@@ -47,6 +47,7 @@
   
   .cart-address-1-div button,
   .cart-address-2-div button,
+  .cart-items-section button,
   .continue-btn button {
     background-color: #3498db;
     color: #fff;
@@ -120,6 +121,17 @@
 #ad-1,
 #ad-2{
   border: 2px solid blue;
+}
+
+.inc-dec-btn{
+  background: green;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
 }
 
 

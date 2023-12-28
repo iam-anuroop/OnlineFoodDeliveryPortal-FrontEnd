@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import AuthContext from '../Context/AuthContext'
 import axios from 'axios'
+import './Chat.css'
 
 
 
@@ -54,9 +55,10 @@ function Chat() {
     };
 
     // Send the message to the server
-    client.send(JSON.stringify(messageData));
-
-    setMessageInput('');
+    if((messageInput.trim()).length>0){
+      client.send(JSON.stringify(messageData));
+      setMessageInput('');
+    }
   };
 
 
@@ -85,7 +87,6 @@ function Chat() {
   return (
     <div>
       <div>
-        <h2>Chat Room: {room}</h2>
         <div style={{ height: '300px', border: '1px solid #ccc', padding: '10px', overflowY: 'auto' }}>
           {messages.map((msg, index) => (
             <div key={index}>
@@ -94,14 +95,16 @@ function Chat() {
           ))}
         </div>
       </div>
-      <div>
-        <input
+      <div className='chat-box-input-div'>
+        <input className='chat-box-input'
           type="text"
           placeholder="Type your message..."
           value={messageInput}
           onChange={(e) => setMessageInput(e.target.value)}
         />
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={sendMessage} className='chat-box-send-btn'>
+        <i className="chat-box-send-icon fa-solid fa-paper-plane"></i>
+        </button>
       </div>
     </div>
   );
