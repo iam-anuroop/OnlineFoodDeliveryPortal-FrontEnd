@@ -47,10 +47,11 @@ function Myorders() {
             {orders&&
             orders.map((item)=>(
               <div key={item.id} className="my-orders-item">
-              <img src={`${base_url}${item.hotel_image}`} alt="Profile photo" className="my-orders-image" />
+              <div className="my-orders-image">{item.hotel_name}</div>
+              {/* <img src={`${base_url}${item.hotel_image}`} alt="Profile photo" className="my-orders-image" /> */}
         
               <div className="my-orders-details">
-                <div className="my-orders-hotel-name">{item.first_shopping_hotel_name}</div>
+                <div className="my-orders-hotel-name">{item.hotel_name}</div>
                 <div className="my-orders-total-amount">${item.total_amount}</div>
                 <button onClick={()=>navigate(`/manageorder/${item.id}`)} className="my-orders-details-button" >
                   Details
