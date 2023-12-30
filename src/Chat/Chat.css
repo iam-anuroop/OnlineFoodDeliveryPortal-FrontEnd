@@ -20,3 +20,41 @@
     background: #3498db;
     color: white;
 }
+
+
+.chat-box-user-msg,
+.chat-box-delivery-msg {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.chat-box-delivery-msg div{
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.chat-box-user-msg div{
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.chat-box-delivery-msg div div{
+  background-color: green;
+  width: fit-content;
+  margin-right: 70px;
+}
+.chat-box-user-msg div div{
+    background-color: blueviolet;
+    width: fit-content; 
+    margin-left: 70px;
+}
+
+

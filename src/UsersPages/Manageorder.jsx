@@ -117,7 +117,7 @@ function Manageorder() {
             </button>}
     
             {chatVisible&&<div className="manage-order-chat-area">
-              <Chat/>
+              <Chat chat_id={payment.stripe_id}/>
             </div>}
           </div>
         </div>
