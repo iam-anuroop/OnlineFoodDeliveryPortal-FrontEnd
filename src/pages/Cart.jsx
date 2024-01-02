@@ -62,13 +62,12 @@ function Cart() {
             }
         }
       } else {
-        // remove old hotel item and add new
         delete currentCart[Object.keys(currentCart)[0]]
         currentCart[currentHotelId] = [{ ...item, count: 1 }];
       }
       localStorage.setItem('cart', JSON.stringify(currentCart));
     } else {
-      const newCart = { [item.hotel.id]: [{ ...item, count: 1 }] }; // replace 'hotelId' with the actual property of your item that holds the hotel ID
+      const newCart = { [item.hotel.id]: [{ ...item, count: 1 }] }; 
       localStorage.setItem('cart', JSON.stringify(newCart));
     }
   };

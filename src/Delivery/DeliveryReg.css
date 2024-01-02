@@ -5,11 +5,20 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-top: 50px;
+    margin-top: 100px;
+    width: 100%;
+  }
+  .del-reg-inputs-1,
+  .del-reg-inputs-2,
+  .del-reg-inputs-3{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 50px;
   }
   
   .d-person-reg-form {
-    width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -23,6 +32,9 @@
   
   .d-person-reg-input-group {
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
   }
   
   .d-person-reg-input-group label {
@@ -31,7 +43,7 @@
   }
   
   .d-person-reg-input-group input {
-    width: 100%;
+    width: 300px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;

@@ -11,7 +11,7 @@ const DelliveryRegister = () => {
     firstName: '',
     lastName: '',
     email: '',
-    password: '',
+    address: '',
     profile_photo: null,
     id_proof: null,
   });
@@ -51,7 +51,8 @@ const DelliveryRegister = () => {
       <Header/>
     <div className="d-person-reg-container">
       <form className="d-person-reg-form" onSubmit={handleSubmit}>
-        <h2 className="d-person-reg-title">Person Registration</h2>
+        <h2 className="d-person-reg-title">Delivery Job Registration</h2>
+        <div className="del-reg-inputs-1">
         <div className="d-person-reg-input-group">
           <label htmlFor="firstName">First Name:</label>
           <input
@@ -74,6 +75,8 @@ const DelliveryRegister = () => {
             required
           />
         </div>
+        </div>
+        <div className="del-reg-inputs-2">
         <div className="d-person-reg-input-group">
           <label htmlFor="email">Email:</label>
           <input
@@ -86,16 +89,18 @@ const DelliveryRegister = () => {
           />
         </div>
         <div className="d-person-reg-input-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Address:</label>
           <input
-            type="password"
-            id="password"
-            name="password"
+            type="text"
+            id="address"
+            name="address"
             value={formData.password}
             onChange={handleChange}
             required
           />
         </div>
+        </div>
+        <div className="del-reg-inputs-3">
         <div className="d-person-reg-input-group">
             <label htmlFor="profile_photo">Profile Photo:</label>
             <input
@@ -115,6 +120,7 @@ const DelliveryRegister = () => {
               onChange={handleChange}
               // accept=".pdf, .jpg, .jpeg, .png"
             />
+          </div>
           </div>
         <button type="submit" className="d-person-reg-submit-btn">
           Register
