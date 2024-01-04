@@ -1,11 +1,13 @@
 import React from 'react'
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import './HotelSidebar.css'
+import { useNavigate } from 'react-router-dom';
 
 
 function AdminSidebar() {
     const [collapsed, setCollapsed] = React.useState(true);
     const [toggled, setToggled] = React.useState(false);
+    const navigate = useNavigate()
 
 
       const handleMouseEnter = () => {
@@ -38,7 +40,7 @@ function AdminSidebar() {
         }}
       >
     <Menu>
-        <div className="hotel-side-bar-heading-div">
+        <div onClick={()=>navigate('/admin')} className="hotel-side-bar-heading-div">
             {toggled && <i class="close-hotel-sidebar-toggle fa-solid fa-xmark" onClick={()=>setToggled(false)}></i>}
             <h2>{collapsed?<i style={{fontSize:'80%'}} className="fa-solid fa-sliders"></i>:'Business'}</h2>
         </div>

@@ -62,6 +62,12 @@
 .admin-home-users-card-div:hover .users-additional-div{
     display: block;
 }
+.admin-home-delivery-card-div:hover .delivery-additional-div{
+  display: block;
+}
+.admin-home-deliveryapprove-card-div:hover .deliveryapprove-additional-div{
+  display: block;
+}
 .admin-home-growth-card-div:hover .growth-additional-div{
     display: block;
 }

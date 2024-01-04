@@ -97,7 +97,8 @@
     align-items: center;
     justify-content: center;
 }
-  /* Responsive Styles (Adjust as needed) */
+
+
   @media screen and (max-width: 768px) {
     .cart-third-div {
       flex-direction: column;

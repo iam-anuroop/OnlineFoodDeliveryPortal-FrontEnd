@@ -3,8 +3,13 @@
     border: 2px solid rgb(2, 2, 152);
     margin-left: 1%;
     max-width: 520px;
-    overflow-x: scroll;
-    /* overflow-y: scroll; */
+    max-height: 92vh;
+    /* overflow-x: scroll; */
+    overflow-y: scroll;
+}
+.admin-table-list-table-div::-webkit-scrollbar{
+    background: rgb(7, 7, 85,0.5);
+    width: 20px;
 }
 
 .admin-panel-pagination-page-number{
@@ -74,3 +79,18 @@
 .admin-selected-hotel{
     background: rgba(33, 206, 33, 0.3) !important;
 }
+.approve-btn-hotel{
+    background: rgb(6, 152, 6,0.5);
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+}
+.reject-btn-hotel{
+    background: rgba(245, 29, 29, 0.5);
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+}
+
