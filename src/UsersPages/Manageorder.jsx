@@ -36,10 +36,30 @@ function Manageorder() {
         }
         catch{
             console.log('Cant fetch user profile');
-
         }
-
     }
+
+
+    const updateOrderTracking = async(pay_id) => {
+
+      try{
+          const response = await axios.get(`http://127.0.0.1:8000/user/ordertrack/?pay_id=${pay_id}`,
+          {
+              headers:{
+                  'Content-Type':'application/json',
+                  'Authorization': `Bearer ${authTokens.token.access}`
+              }
+          }
+          )
+          console.log(response.data.status)
+          setDeliveryStatus(response.data.status)
+      }
+      catch{
+          console.log('Cant update');
+
+      }
+
+  }
 
 
     const statusOptions = [
@@ -62,6 +82,7 @@ function Manageorder() {
 
       useEffect(()=>{
         fetchOrderDetails(id);
+        updateOrderTracking(id)
       },[])
     
       

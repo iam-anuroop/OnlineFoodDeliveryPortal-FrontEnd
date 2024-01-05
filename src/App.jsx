@@ -28,6 +28,8 @@ import FoodItems from './HotelsPages/FoodItems'
 import DelliveryRegister from './Delivery/DelliveryRegister'
 import Myorders from './UsersPages/Myorders'
 import Manageorder from './UsersPages/Manageorder'
+import DeliveryNotification from './Delivery/DeliveryNotification'
+import DeliveryHome from './Delivery/DeliveryHome'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
@@ -100,6 +102,8 @@ function App() {
           <Route element={<Payment/>} path='/payment/:address'/>
           <Route element={<SuccessPage/>} path='/success'/>
           <Route element={<Maps/>} path='/map/:address'/>
+          <Route element={<DeliveryNotification/>} path='/deliverynotification'/>
+          <Route element={<DeliveryHome/>} path='/deliveryhome'/>
         </Routes>
       </AuthContext.Provider>
     </div>

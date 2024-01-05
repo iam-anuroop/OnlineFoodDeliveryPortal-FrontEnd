@@ -1,0 +1,78 @@
+.delivery-notification-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .delivery-notification-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .delivery-notification-back-btn {
+    background-color: #063352;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .delivery-notification-heading {
+    margin-left: 20px;
+    font-size: 24px;
+  }
+  
+  .delivery-notification-content {
+    display: flex;
+  }
+  
+  .delivery-notification-list {
+    width: 30%;
+  }
+  
+  .delivery-notification-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .delivery-notification-item.selected {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  .delivery-notification-details {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .delivery-notification-detail {
+    margin-bottom: 10px;
+  }
+  
+  .delivery-notification-no-selection {
+    font-style: italic;
+    color: #888;
+  }
+  .reject-delivery-btn,
+  .accept-delivery-btn{
+      padding: 8px;
+      border: 2px solid #063352;
+      border-radius: 5px;
+      margin-left: 10px;
+      color: whitesmoke;
+      font-weight: bold;
+  }
+  .accept-delivery-btn{
+    background: rgb(15, 162, 15);
+  }
+  .reject-delivery-btn{
+    background: rgb(236, 89, 89);
+  }
+  /* .delivery-notification-items{
+
+  } */

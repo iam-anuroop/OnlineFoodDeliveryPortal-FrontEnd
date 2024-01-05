@@ -20,12 +20,13 @@
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
   }
+
   
   .food-item-card:hover {
     background-color: #f8f9fa;
   }
   
-  .selected {
+  .food-item-card .selected {
     background-color: #007bff;
     color: #fff;
   }
