@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './DeliveryNotification.css'; 
 import AuthContext from '../Context/AuthContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const DeliveryNotification = () => {
 
@@ -10,6 +11,7 @@ const DeliveryNotification = () => {
   const [notificationsData, setnotificationsData] = useState([]);
   const [detailsData, setDetailsData] = useState([]);
   const [hotellData, setHotellData] = useState({});
+  const navigate = useNavigate()
 
 
   const handleNotificationClick = (notification) => {
@@ -49,7 +51,7 @@ console.log(hotellData);
   return (
     <div className="delivery-notification-container">
       <div className="delivery-notification-header">
-        <button className="delivery-notification-back-btn">Back</button>
+        <button className="delivery-notification-back-btn" onClick={()=>navigate('/deliveryhome')}>Back</button>
         <h1 className="delivery-notification-heading">Delivery Notification</h1>
       </div>
 
