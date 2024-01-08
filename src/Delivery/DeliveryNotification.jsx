@@ -41,6 +41,21 @@ const DeliveryNotification = () => {
     }
   }
 
+  const acceptRejectOrders = async (action) => {
+    try{
+      const response = await axios.post('http://127.0.0.1:8000/delivery/acceptrejectorders/',
+          {
+            headers:{
+              'Content-Type':'application/json',
+              'Authorization': `Bearer ${authTokens.token.access}` 
+            },
+          });
+          console.log(action);
+    }catch(error){
+        console.log(error);
+    }
+  }
+
 
 useEffect(()=>{
     fetchNotications();
@@ -94,8 +109,8 @@ console.log(hotellData);
                 </div>
               </div>
               <div style={{display:'flex'}}>
-              <button className='accept-delivery-btn'>Accept</button>
-              <button className='reject-delivery-btn'>Reject</button>
+              <button className='accept-delivery-btn' onClick={()=>acceptRejectOrders(true)}>Accept</button>
+              <button className='reject-delivery-btn' onClick={()=>acceptRejectOrders(false)}>Reject</button>
               </div>
             </>
           ) : (

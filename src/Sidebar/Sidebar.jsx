@@ -9,7 +9,7 @@ import Modal from '@mui/material/Modal';
 
 function OffCanvasExample({ name, ...props }) {
 
-  const { user } = useContext(AuthContext)
+  const { user,hotelAuth } = useContext(AuthContext)
 
   // selector bar codes
   const [select,setSelect] = useState(false)
@@ -59,10 +59,20 @@ function OffCanvasExample({ name, ...props }) {
               Profile
               <i className="fa-solid fa-id-card"></i>
             </li>
-            {user.is_owner&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
+            {user.is_owner&&!hotelAuth&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
               Manage Your Hotel
               <i className="fa-solid fa-id-card"></i>
             </li>}
+            {user.is_owner&&hotelAuth&&<li onClick={()=>navigate('/hotelhome')} className="sidebar-ul-li-profile">
+              Got To hotel
+              <i className="fa-solid fa-id-card"></i>
+            </li>
+            }
+            {user.is_deliveryboy&&<li onClick={()=>navigate('/deliveryhome')} className="sidebar-ul-li-profile">
+              Manage Your Work
+              <i className="fa-solid fa-id-card"></i>
+            </li>
+            }
             <li onClick={()=>navigate('/myorders')} className="sidebar-ul-li-profile">
               My Orders
               <i className="fa-solid fa-id-card"></i>
