@@ -41,16 +41,24 @@ const DeliveryNotification = () => {
     }
   }
 
-  const acceptRejectOrders = async (action) => {
+  const acceptRejectOrders = async (action,del_id) => {
     try{
       const response = await axios.post('http://127.0.0.1:8000/delivery/acceptrejectorders/',
-          {
+      {
+        data:action,
+        del_id:del_id
+      },
+      {
             headers:{
               'Content-Type':'application/json',
               'Authorization': `Bearer ${authTokens.token.access}` 
-            },
-          });
-          console.log(action);
+            }},
+          );
+          console.log(action,del_id);
+          setnotificationsData(
+            notificationsData.filter((item)=>item.id!=del_id)
+            );
+          setSelectedNotification(null)
     }catch(error){
         console.log(error);
     }
@@ -61,7 +69,7 @@ useEffect(()=>{
     fetchNotications();
 },[])
 
-console.log(hotellData);
+console.log(selectedNotification);
 
   return (
     <div className="delivery-notification-container">
@@ -109,8 +117,8 @@ console.log(hotellData);
                 </div>
               </div>
               <div style={{display:'flex'}}>
-              <button className='accept-delivery-btn' onClick={()=>acceptRejectOrders(true)}>Accept</button>
-              <button className='reject-delivery-btn' onClick={()=>acceptRejectOrders(false)}>Reject</button>
+              <button className='accept-delivery-btn' onClick={()=>acceptRejectOrders(true,selectedNotification.id)}>Accept</button>
+              <button className='reject-delivery-btn' onClick={()=>acceptRejectOrders(false,selectedNotification.id)}>Reject</button>
               </div>
             </>
           ) : (

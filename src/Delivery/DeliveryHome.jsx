@@ -57,9 +57,11 @@ console.log(not);
 
               </div>
             </div>
-            <div className="delivery-home-left-2">
+            <div className="delivery-home-left-2" onClick={()=>navigate('/currentorders')}>
+              <div>
               <div>
                 <h5>current orders</h5>
+              </div>
               </div>
             </div>
           </div>
@@ -67,7 +69,6 @@ console.log(not);
             <div className="delivery-home-right-1">
               <div>
                 <h5>Work Details</h5>
-
               </div>
             </div>
             <div className="delivery-home-right-2">
