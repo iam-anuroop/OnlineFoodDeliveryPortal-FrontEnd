@@ -43,23 +43,23 @@ console.log(not);
           <div className="delivery-home-back-btn">
             <button>Back</button>
           </div>
-          <div className='delivery-heading'>
+          <div className='delivery-heading' style={{border:'none'}}>
             <h4>Work Area</h4>
           </div>
         </div>
         <div className="delivery-home-options-div">
           <div className="delivery-home-left">
             <div className="delivery-home-left-1" onClick={()=>navigate('/deliverynotification')}>
-              <div>
-                <div style={{display:'flex'}}>
-                <div><h5>New Notifications</h5></div><div title={`you have ${not} notifications..`} className='not-span'>{not}</div>
+              <div className='delivery-home-left-1-1' >
+                <div style={{display:'flex',border:'none'}}>
+                <div style={{border:'none'}}><h5>New Notifications</h5></div><div title={`you have ${not} notifications..`} className='not-span' style={{color:'whitesmoke'}}>{not}</div>
                 </div>
 
               </div>
             </div>
             <div className="delivery-home-left-2" onClick={()=>navigate('/currentorders')}>
-              <div>
-              <div>
+              <div className='delivery-home-left-2-2' >
+              <div style={{border:'none'}}>
                 <h5>current orders</h5>
               </div>
               </div>
@@ -67,12 +67,12 @@ console.log(not);
           </div>
           <div className="delivery-home-right">
             <div className="delivery-home-right-1">
-              <div>
+              <div  className='delivery-home-right-1-1'>
                 <h5>Work Details</h5>
               </div>
             </div>
             <div className="delivery-home-right-2">
-              <div>
+              <div className='delivery-home-right-2-2'>
                 <h5>others</h5>
               </div>
             </div>

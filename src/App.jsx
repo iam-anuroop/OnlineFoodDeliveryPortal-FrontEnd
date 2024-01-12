@@ -67,10 +67,10 @@ function App() {
     authTokens,setAuthTokens,
     user,setUser,
     hotelAuth,setHotelAuth,
-    // markerPosition,setMarkerPosition,
   }
 
-  // const isAuthenticated = localStorage.getItem('location');
+  console.log(hotelAuth,user,'app.jsxxxxxxxxxxxxxxxxxx');
+
   
   return (
     <div className='app'>

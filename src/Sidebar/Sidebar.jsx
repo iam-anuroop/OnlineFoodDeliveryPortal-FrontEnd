@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import AuthContext from '../Context/AuthContext'
 import {useNavigate} from 'react-router-dom'
@@ -13,7 +13,9 @@ function OffCanvasExample({ name, ...props }) {
 
   // selector bar codes
   const [select,setSelect] = useState(false)
-  const [owner,setOwner] = useState(false)
+  console.log(user);
+  const [owner,setOwner] = useState(user&&user.is_owner&&!hotelAuth)
+  const [hotelLogined,setHotelLogined] = useState(user&&user.is_owner&&hotelAuth)
   const handleModalClose = () => setSelect(false)
 
   
@@ -23,7 +25,13 @@ function OffCanvasExample({ name, ...props }) {
   const handleShow = () => setShow(true);
   const navigate = useNavigate()
 
-  console.log(user);
+  console.log(owner,hotelLogined,'sidebaaaaaaaaaaar');
+  
+
+  const logout = () => {
+    localStorage.removeItem('authTokens')
+    navigate('/')
+  }
 
   return (
     <>
@@ -59,16 +67,16 @@ function OffCanvasExample({ name, ...props }) {
               Profile
               <i className="fa-solid fa-id-card"></i>
             </li>
-            {user.is_owner&&!hotelAuth&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
+            {owner&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
               Manage Your Hotel
               <i className="fa-solid fa-id-card"></i>
             </li>}
-            {user.is_owner&&hotelAuth&&<li onClick={()=>navigate('/hotelhome')} className="sidebar-ul-li-profile">
+            {hotelLogined&&<li onClick={()=>navigate('/hotelhome')} className="sidebar-ul-li-profile">
               Got To hotel
               <i className="fa-solid fa-id-card"></i>
             </li>
             }
-            {user.is_deliveryboy&&<li onClick={()=>navigate('/deliveryhome')} className="sidebar-ul-li-profile">
+            {user&&user.is_deliveryboy&&<li onClick={()=>navigate('/deliveryhome')} className="sidebar-ul-li-profile">
               Manage Your Work
               <i className="fa-solid fa-id-card"></i>
             </li>
@@ -77,6 +85,14 @@ function OffCanvasExample({ name, ...props }) {
               My Orders
               <i className="fa-solid fa-id-card"></i>
             </li>
+            {user?<li onClick={logout} className="sidebar-ul-li-profile">
+              Logout
+              <i className="fa-solid fa-id-card"></i>
+            </li>:
+            <li onClick={()=>navigate('/')} className="sidebar-ul-li-profile">
+              Login
+              <i className="fa-solid fa-id-card"></i>
+            </li>}
           </ul>
         </Offcanvas.Body>
       </Offcanvas>

@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import './OtpVerify.css'
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast} from 'react-toastify';
+import AuthContext from '../Context/AuthContext'
+
 
 
 
@@ -14,6 +16,7 @@ const OtpVerify = () => {
   const inputRefs = useRef([0, 0, 0, 0, 0, 0]);
   const navigate = useNavigate()
   const [open, setOpen] = React.useState(true);
+  const { setAuthTokens,setUer,setHotelAuth } = useContext(AuthContext)
 
 
   const handleInputChange = (event, index) => {
@@ -95,9 +98,11 @@ const OtpVerify = () => {
       localStorage.removeItem('key')
       localStorage.removeItem('email')
       localStorage.setItem('authTokens',JSON.stringify(response.data))
+      setAuthTokens(response.data)
       toast.success('Login Successfull')
       AddToCart();
       navigate('/home')
+      
     } catch (error) {
       console.error('Verification failed:', error);
       toast.warning('Something Wrong')

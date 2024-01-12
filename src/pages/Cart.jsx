@@ -118,12 +118,18 @@ console.log(cartitems);
                     <div className='cart-address-1-div' id={params==='home'?'ad-1':''} onClick={()=>navigate(`/cart/${'home'}`)}>
                       <h6>Home Address</h6>
                       <p>{currentAddress.user_address?currentAddress.user_address:'add your Address'}</p>
-                      <button onClick={()=>navigate(`/map/${'home'}`)}>{currentAddress.user_address?'Edit':'Add'}</button>
+                      <button onClick={(e)=>{
+                        e.stopPropagation();
+                        navigate(`/map/${'home'}`);
+                        }}>{currentAddress.user_address?'Edit':'Add'}</button>
                     </div>
                     <div className='cart-address-2-div' id={params==='office'?'ad-2':''} onClick={()=>navigate(`/cart/${'office'}`)}>
                       <h6>Office Address</h6>
                       <p>{currentAddress.office_address?currentAddress.office_address:'add your address'}</p>
-                      <button onClick={()=>navigate(`/map/${'office'}`)}>{currentAddress.office_address?'Edit':'Add new'}</button>
+                      <button onClick={(e)=>{
+                        e.stopPropagation();
+                        navigate(`/map/${'office'}`);
+                        }}>{currentAddress.office_address?'Edit':'Add new'}</button>
                     </div>
                   </div>
                 </div>
