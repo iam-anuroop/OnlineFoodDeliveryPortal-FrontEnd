@@ -31,6 +31,7 @@ import Manageorder from './UsersPages/Manageorder'
 import DeliveryNotification from './Delivery/DeliveryNotification'
 import DeliveryHome from './Delivery/DeliveryHome'
 import CurrentOrders from './Delivery/CurrentOrders'
+import CurrentOrderDetails from './Delivery/CurrentOrderDetails'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
@@ -60,7 +61,6 @@ function App() {
     return null;
   });
   
-  // const [markerPosition, setMarkerPosition] = useState([ 11.0808,76.0702]);
   
 
   const context = {
@@ -69,7 +69,6 @@ function App() {
     hotelAuth,setHotelAuth,
   }
 
-  console.log(hotelAuth,user,'app.jsxxxxxxxxxxxxxxxxxx');
 
   
   return (
@@ -106,6 +105,7 @@ function App() {
           <Route element={<DeliveryNotification/>} path='/deliverynotification'/>
           <Route element={<DeliveryHome/>} path='/deliveryhome'/>
           <Route element={<CurrentOrders/>} path='/currentorders'/>
+          <Route element={<CurrentOrderDetails/>} path='/currentorderdetiails/:id/:chat_id'/>
         </Routes>
       </AuthContext.Provider>
     </div>

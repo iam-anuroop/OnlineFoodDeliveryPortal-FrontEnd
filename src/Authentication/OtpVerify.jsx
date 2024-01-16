@@ -16,7 +16,7 @@ const OtpVerify = () => {
   const inputRefs = useRef([0, 0, 0, 0, 0, 0]);
   const navigate = useNavigate()
   const [open, setOpen] = React.useState(true);
-  const { setAuthTokens,setUer,setHotelAuth } = useContext(AuthContext)
+  const { authTokens,setAuthTokens,setUer,setHotelAuth } = useContext(AuthContext)
 
 
   const handleInputChange = (event, index) => {

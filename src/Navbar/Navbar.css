@@ -73,9 +73,7 @@
     border-radius: 5px;
     color: whitesmoke;
   }
-  .navbar-search-lense-icon{
-    display: none;
-  }
+ 
   .navbar-option-ul .navbar-ul-dropdown-li{
     display: block;
   }
@@ -110,9 +108,7 @@
   .navbar-drop-search{
     display: block;
   }
-  .navbar-ul-search-input{
-    display: none;
-  }
+  
   .navbar-option-ul .navabar-ul-search-li{
     display: none;
   }

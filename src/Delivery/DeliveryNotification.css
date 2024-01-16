@@ -73,6 +73,7 @@
   .reject-delivery-btn{
     background: rgb(236, 89, 89);
   }
-  /* .delivery-notification-items{
-
-  } */
+ .delivery-notification-details{
+  border: 1px solid #3498db;
+  padding: 2%;
+ }

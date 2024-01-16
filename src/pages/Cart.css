@@ -146,3 +146,8 @@
   font-weight: bold;
   font-size: large;
 }
+.my-orders-second-div{
+  margin: 10px;
+  padding: 2%;
+  border: 1px solid #3498db;
+}

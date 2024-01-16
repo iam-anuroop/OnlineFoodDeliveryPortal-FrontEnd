@@ -100,7 +100,7 @@ function Location() {
                   </div>
                   {serchResult&&<div className='loacation-search-result-div'>
                     <div>
-                        {availableLoc.map((loc)=>(
+                        {availableLoc&&availableLoc.map((loc)=>(
                           <div>
                             <h6>{loc.city},</h6>
                             <p>{loc.city}, {loc.district}, {loc.state}</p>

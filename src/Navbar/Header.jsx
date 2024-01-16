@@ -41,7 +41,6 @@ function Header() {
                         <div className="search-li-div">
                             <span><span className='navbar-search-lense-icon'><i className="fa-solid fa-magnifying-glass"> </i> 
                             </span> Search</span>
-                            <span> <input className='navbar-ul-search-input' type="text" /></span>
                         </div>
                     </li>
                     <li className="navbar-ul-offers-li">
@@ -73,9 +72,9 @@ function Header() {
                                     <i className="fa-solid fa-location-dot"></i> Location</a>)
                                     }
                                 </div>
-                                <div>Offer</div>
-                                <div onClick={()=>navigate('/cart')}>Cart</div>
-                                <div className='navbar-drop-search'>Search</div>
+                                <div><i className="fa-solid fa-gifts"></i> Offer</div>
+                                <div onClick={()=>navigate('/cart')}><i className="fa-solid fa-cart-shopping"></i> Cart</div>
+                                <div className='navbar-drop-search'><i className="fa-solid fa-magnifying-glass"> </i> Search</div>
                                 <div><Sidebar /></div>
                             </div>}
                         </div>

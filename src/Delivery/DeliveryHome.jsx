@@ -52,7 +52,10 @@ console.log(not);
             <div className="delivery-home-left-1" onClick={()=>navigate('/deliverynotification')}>
               <div className='delivery-home-left-1-1' >
                 <div style={{display:'flex',border:'none'}}>
-                <div style={{border:'none'}}><h5>New Notifications</h5></div><div title={`you have ${not} notifications..`} className='not-span' style={{color:'whitesmoke'}}>{not}</div>
+                <div style={{border:'none'}}>
+                  <h5>New Notifications</h5>
+                  </div>
+                  <div title={`you have ${not} notifications..`} className='not-span' style={{color:'whitesmoke'}}>{not}</div>
                 </div>
 
               </div>
