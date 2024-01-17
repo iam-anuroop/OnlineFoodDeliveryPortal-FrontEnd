@@ -5,7 +5,9 @@ const WorkDetails = () => {
     const navigate = useNavigate()
   return (
     <div>
-        <button onClick={()=>navigate('/deliveryhome')}>Back</button>
+        <button onClick={()=>navigate('/deliveryhome')}>
+            <h1>Back</h1>
+        </button>
         WorkDetails
     </div>
   )
