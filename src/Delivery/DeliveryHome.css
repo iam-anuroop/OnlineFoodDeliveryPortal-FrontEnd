@@ -45,6 +45,7 @@
     height: 100%;
 }
 
+
 .delivery-home-left-1,
 .delivery-home-left-2,
 .delivery-home-right-1,
@@ -57,10 +58,11 @@
     padding: 5%;
 }
 
-.delivery-home-left-1 div,
-.delivery-home-left-2 div,
-.delivery-home-right-1 div,
-.delivery-home-right-2 div {
+
+.delivery-home-left-1-1,
+.delivery-home-left-2-2,
+.delivery-home-right-1-1,
+.delivery-home-right-2-2 {
     border: 2px solid rgb(196, 185, 185); 
     width: 100%;
     height: 100%;
@@ -86,6 +88,19 @@
 .delivery-home-right-2-2:hover {
     box-shadow: 5px 5px 15px 2px rgb(94, 92, 92) inset;
 }
+.work-details-pie-chart-div{
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    background-image: url('https://img.freepik.com/free-vector/colorful-pie-charts_1006-5.jpg?size=626&ext=jpg&ga=GA1.1.679009090.1705490377&semt=ais');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 20px;
+    border-radius: inherit;
+
+}
+
 
 .not-span {
     background: red !important;

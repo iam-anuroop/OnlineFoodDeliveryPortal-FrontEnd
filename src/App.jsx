@@ -32,6 +32,7 @@ import DeliveryNotification from './Delivery/DeliveryNotification'
 import DeliveryHome from './Delivery/DeliveryHome'
 import CurrentOrders from './Delivery/CurrentOrders'
 import CurrentOrderDetails from './Delivery/CurrentOrderDetails'
+import WorkDetails from './Delivery/WorkDetails'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
@@ -106,6 +107,7 @@ function App() {
           <Route element={<DeliveryHome/>} path='/deliveryhome'/>
           <Route element={<CurrentOrders/>} path='/currentorders'/>
           <Route element={<CurrentOrderDetails/>} path='/currentorderdetiails/:id/:chat_id'/>
+          <Route element={<WorkDetails/>} path='/workdetails'/>
         </Routes>
       </AuthContext.Provider>
     </div>

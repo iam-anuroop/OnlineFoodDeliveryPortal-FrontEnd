@@ -3,7 +3,8 @@ import './DeliveryHome.css'
 import axios from 'axios'
 import AuthContext from '../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
-// import { PieChart } from '@mui/x-charts/PieChart';
+import { PieChart } from '@mui/x-charts/PieChart';
+
 
 
 
@@ -51,13 +52,8 @@ console.log(not);
           <div className="delivery-home-left">
             <div className="delivery-home-left-1" onClick={()=>navigate('/deliverynotification')}>
               <div className='delivery-home-left-1-1' >
-                <div style={{display:'flex',border:'none'}}>
-                <div style={{border:'none'}}>
                   <h5>New Notifications</h5>
-                  </div>
                   <div title={`you have ${not} notifications..`} className='not-span' style={{color:'whitesmoke'}}>{not}</div>
-                </div>
-
               </div>
             </div>
             <div className="delivery-home-left-2" onClick={()=>navigate('/currentorders')}>
@@ -70,8 +66,12 @@ console.log(not);
           </div>
           <div className="delivery-home-right">
             <div className="delivery-home-right-1">
-              <div  className='delivery-home-right-1-1'>
+              <div  className='delivery-home-right-1-1' onClick={()=>navigate('/workdetails')}>
                 <h5>Work Details</h5>
+                <div className='work-details-pie-chart-div'>
+                  {/* <img src="https://img.freepik.com/free-vector/colorful-pie-charts_1006-5.jpg?size=626&ext=jpg&ga=GA1.1.679009090.1705490377&semt=ais" alt="" /> */}
+                </div>
+                
               </div>
             </div>
             <div className="delivery-home-right-2">
