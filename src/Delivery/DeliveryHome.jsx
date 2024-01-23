@@ -3,7 +3,6 @@ import './DeliveryHome.css'
 import axios from 'axios'
 import AuthContext from '../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
-import { PieChart } from '@mui/x-charts/PieChart';
 
 
 
@@ -42,7 +41,7 @@ console.log(not);
       <div className="delivery-home-second">
         <div className="delivery-home-heading">
           <div className="delivery-home-back-btn">
-            <button>Back</button>
+              <button onClick={()=>navigate('/home')}>Back</button>
           </div>
           <div className='delivery-heading' style={{border:'none'}}>
             <h4>Work Area</h4>

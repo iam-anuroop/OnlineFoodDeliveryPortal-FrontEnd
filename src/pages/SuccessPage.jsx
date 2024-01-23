@@ -2,12 +2,15 @@ import React, { useContext,useEffect } from 'react'
 import AuthContext from "../Context/AuthContext";
 import Header from '../Navbar/Header'
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import './SuccessPage.css'
 
 
 function SuccessPage() {
 
 const urlParams = new URLSearchParams(window.location.search);
 const { user,authTokens } = useContext(AuthContext)
+const navigate = useNavigate()
 
 
 const sessionId = urlParams.get('session_id');
@@ -40,8 +43,13 @@ useEffect(() => {
 
   return (
     <div>
-      <Header/>
-      <div>{sessionId}</div>
+      <div className="order-completed-container">
+      <div className="checkmark-icon">&#10003;</div>
+      <h2 className="completion-text">Order Completed!</h2>
+      <p className="navigate-text" onClick={()=>navigate('/home')}>
+        Click here to go back to Home
+      </p>
+    </div>
     </div>
   )
 }

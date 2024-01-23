@@ -1,0 +1,89 @@
+.bard-bot-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .message-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    background: #ede7e7;
+  }
+  .heade-bard-bot{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 5px solid #ede7e7  ;
+  }
+  .bot-back-btn{
+    background: black;
+    padding: 8px;
+    border-radius: 8px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+.bot-heading-name{
+      font-weight: bold;
+  }
+  .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    max-width: 100%;
+  }
+  
+  .user {
+      color: #fff;
+      display: flex;
+      justify-content: start;
+    }
+ .user div{
+    background-color: #2196f3; /* Blue color for user messages */
+    width: fit-content;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .bot {
+      color: #fff;
+      display: flex;
+      justify-content: end;
+    }
+.bot div{
+    background-color: #4caf50; /* Green color for bot messages */
+    width: fit-content;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .loading {
+    text-align: center;
+    color: #999;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .bard-bot-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .bard-bot-button {
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #4caf50; /* Green color for the send button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  

@@ -28,7 +28,7 @@ function HotelHome() {
             <button className="hotel-home-button">Manage</button>
           </div>
 
-          <div className="hotel-home-item">
+          <div className="hotel-home-item" onClick={()=>navigate('/track')}>
             <h2 className="hotel-home-heading">Income & Payments</h2>
             <p className="hotel-home-description">Income And Payment Details</p>
             <button className="hotel-home-button">Manage</button>

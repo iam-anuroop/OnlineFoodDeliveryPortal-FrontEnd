@@ -1,0 +1,41 @@
+.order-completed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    text-align: center;
+  }
+  
+  .checkmark-icon {
+    font-size: 5rem;
+    color: #4caf50; /* Green color for the checkmark */
+  }
+  
+  .completion-text {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333; /* Dark text color */
+  }
+  
+  .navigate-text {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #2196f3; /* Blue color for the navigation text */
+  }
+  
+  /* Media query for responsiveness */
+  @media screen and (max-width: 600px) {
+    .checkmark-icon {
+      font-size: 4rem;
+    }
+  
+    .completion-text {
+      font-size: 1.2rem;
+    }
+  
+    .navigate-text {
+      font-size: 0.9rem;
+    }
+  }
+  

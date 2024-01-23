@@ -33,6 +33,8 @@ import DeliveryHome from './Delivery/DeliveryHome'
 import CurrentOrders from './Delivery/CurrentOrders'
 import CurrentOrderDetails from './Delivery/CurrentOrderDetails'
 import WorkDetails from './Delivery/WorkDetails'
+import TrackDetails from './HotelsPages/TrackDetails'
+import BardBot from './pages/BardBot'
 // stripe
 import Payment from './pages/Payment'
 import SuccessPage from './pages/SuccessPage'
@@ -88,26 +90,26 @@ function App() {
           <Route element={<UserPrivate><DelliveryRegister/></UserPrivate>} path='/delreg'/>
           <Route element={<UserPrivate><Myorders/></UserPrivate>} path='/myorders'/>
           <Route element={<UserPrivate><Manageorder/></UserPrivate>} path='/manageorder/:id'/>
-          <Route element={<Sidebar/>} path='/bar'/>
           <Route element={<PhoneOtp/>} path='/phoneotp'/>
           <Route element={<UserPrivate><OwnerRegister/></UserPrivate>} path='/owner'/>
           <Route element={<UserPrivate><HotelRegister/></UserPrivate>} path='/hotelreg'/>
-          <Route element={<UserPrivate><AccountSelector/></UserPrivate>} path='/acc'/>
           <Route element={<UserPrivate><HotelLogin/></UserPrivate>} path='/hotellogin'/>
           <Route element={<HotelPrivate><HotelHome/></HotelPrivate>} path='/hotelhome'/>
           <Route element={<HotelPrivate><ManageFood/></HotelPrivate>} path='/managefood'/>
           <Route element={<HotelPrivate><FoodItems/></HotelPrivate>} path='/fooditems'/>
+          <Route element={<HotelPrivate><TrackDetails/></HotelPrivate>} path='/track'/>
           <Route element={<AdminPrivate><AdminHome/></AdminPrivate>} path='/admin'/>
           <Route element={<AdminPrivate><AdminHotelList/></AdminPrivate>} path='/adminhotellist'/>
           <Route element={<AdminPrivate><AdminNewHotel/></AdminPrivate>} path='/adminnewhotel'/>
           <Route element={<Payment/>} path='/payment/:address'/>
           <Route element={<SuccessPage/>} path='/success'/>
           <Route element={<Maps/>} path='/map/:address'/>
-          <Route element={<DeliveryNotification/>} path='/deliverynotification'/>
           <Route element={<DeliveryHome/>} path='/deliveryhome'/>
+          <Route element={<DeliveryNotification/>} path='/deliverynotification'/>
           <Route element={<CurrentOrders/>} path='/currentorders'/>
           <Route element={<CurrentOrderDetails/>} path='/currentorderdetiails/:id/:chat_id'/>
           <Route element={<WorkDetails/>} path='/workdetails'/>
+          <Route element={<BardBot/>} path='/bardbot'/>
         </Routes>
       </AuthContext.Provider>
     </div>

@@ -69,30 +69,34 @@ function OffCanvasExample({ name, ...props }) {
             </li>
             {owner&&<li onClick={()=>setSelect(true)} className="sidebar-ul-li-profile">
               Manage Your Hotel
-              <i className="fa-solid fa-id-card"></i>
+              <i className="fa-solid fa-hotel"></i>
             </li>}
             {hotelLogined&&<li onClick={()=>navigate('/hotelhome')} className="sidebar-ul-li-profile">
               Got To hotel
-              <i className="fa-solid fa-id-card"></i>
+              <i className="fa-solid fa-hotel"></i>
             </li>
             }
             {user&&user.is_deliveryboy&&<li onClick={()=>navigate('/deliveryhome')} className="sidebar-ul-li-profile">
               Manage Your Work
-              <i className="fa-solid fa-id-card"></i>
+              <i className="fa-solid fa-truck-ramp-box"></i>
             </li>
             }
             <li onClick={()=>navigate('/myorders')} className="sidebar-ul-li-profile">
               My Orders
-              <i className="fa-solid fa-id-card"></i>
+              <i className="fa-solid fa-rectangle-list"></i>
             </li>
             {user?<li onClick={logout} className="sidebar-ul-li-profile">
               Logout
-              <i className="fa-solid fa-id-card"></i>
+              <i className="fa-solid fa-right-from-bracket"></i>
             </li>:
             <li onClick={()=>navigate('/')} className="sidebar-ul-li-profile">
               Login
               <i className="fa-solid fa-id-card"></i>
             </li>}
+            <li onClick={()=>navigate('/bardbot')} className="sidebar-ul-li-profile">
+              Chat with Bot
+              <i className="fa-solid fa-robot"></i>
+            </li>
           </ul>
         </Offcanvas.Body>
       </Offcanvas>

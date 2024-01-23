@@ -42,14 +42,14 @@ function AdminSidebar() {
     <Menu>
         <div onClick={()=>navigate('/admin')} className="hotel-side-bar-heading-div">
             {toggled && <i class="close-hotel-sidebar-toggle fa-solid fa-xmark" onClick={()=>setToggled(false)}></i>}
-            <h2>{collapsed?<i style={{fontSize:'80%'}} className="fa-solid fa-sliders"></i>:'Business'}</h2>
+            <h2>{collapsed?<i style={{fontSize:'80%'}} className="fa-solid fa-sliders"></i>:'Panel'}</h2>
         </div>
         {!collapsed&&<p style={{color:'gray',paddingLeft:'8%',fontWeight:'bold',fontSize:'80%',paddingTop:'6%'}} className="hotel-side-bar-general">Options</p>}
         {collapsed&&<hr style={{border:'3px solid gray', color:'gray'}}/>}
         {!collapsed&&<hr style={{border:'1px solid gray', color:'gray'}}/>}
-        <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-utensils"></i>:'Foods'}</MenuItem>
+        <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-utensils"></i>:'Some page'}</MenuItem>
         <hr style={{border:'1px solid gray', color:'blue'}}/>
-        <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-truck-ramp-box"></i>:'Orders'}</MenuItem>
+        <MenuItem className={collapsed?'hotel-sidebar-meanu-item-collapsed':'hotel-sidebar-meanu-item'}>{collapsed?<i className="fa-solid fa-truck-ramp-box"></i>:'Some page'}</MenuItem>
         <hr style={{border:'1px solid gray', color:'blue'}}/>
      </Menu>
      </Sidebar>
